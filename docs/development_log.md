@@ -73,3 +73,54 @@ Vega-neutral Strategy
 Portfolio Construction
 
 The primary objective of Version 2.0 is to enhance the scientific rigor, robustness, and practical applicability of the research platform.
+
+---
+
+## 2026-06-XX
+
+### Research Milestone
+
+Completed and froze Research Question 1 (RQ1).
+
+**Research Topic**
+
+Daily ATM Implied Volatility Distribution
+
+### Completed Components
+
+- Executive Summary
+- Introduction
+- Research Question Definition
+- Dataset Documentation
+- Methodology
+- Empirical Results
+- Discussion and Implications
+- Limitations
+- Future Research Roadmap
+
+### Statistical Analyses
+
+- Descriptive Statistics
+- Histogram Analysis
+- Box Plot Analysis
+- Skewness Analysis
+- Excess Kurtosis Analysis
+- IQR-Based Extreme Observation Analysis
+
+### Outputs
+
+- Research Note (RQ1)
+- Statistical Summary Table
+- Histogram Figure
+- Box Plot Figure
+- Executive Summary
+
+### Release Status
+
+RQ1 v1.0 Frozen
+
+### Next Research Objective
+
+RQ2 — ATM Term Structure
+
+Establish the empirical behaviour of ATM implied volatility across maturities and investigate the structure of the implied volatility term curve.
