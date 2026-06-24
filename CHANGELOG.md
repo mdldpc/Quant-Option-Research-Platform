@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+## Version 1.0
+Release Date: June 2026
+
+Status: Stable Release
+
 ## Version 1.0.0 (Current)
 
 ### Added

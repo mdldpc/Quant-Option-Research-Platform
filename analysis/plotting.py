@@ -130,3 +130,65 @@ def plot_robustness_dashboard(
     print(f"Saved robustness dashboard: {output_path}")
 
     return output_path
+
+def plot_histogram(
+    series,
+    title,
+    xlabel,
+    save_path,
+    bins=30,
+):
+    save_path = Path(save_path)
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+
+    data = series.dropna()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.hist(
+        data,
+        bins=bins,
+        edgecolor="black",
+        alpha=0.8,
+    )
+
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel("Frequency")
+    ax.grid(True, axis="y", alpha=0.3)
+
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+    print(f"Saved histogram: {save_path}")
+
+
+def plot_boxplot(
+    series,
+    title,
+    ylabel,
+    save_path,
+):
+    save_path = Path(save_path)
+    save_path.parent.mkdir(parents=True, exist_ok=True)
+
+    data = series.dropna()
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    ax.boxplot(
+        data,
+        vert=True,
+        showmeans=True,
+    )
+
+    ax.set_title(title)
+    ax.set_ylabel(ylabel)
+    ax.grid(True, axis="y", alpha=0.3)
+
+    fig.tight_layout()
+    fig.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.close(fig)
+
+    print(f"Saved boxplot: {save_path}")

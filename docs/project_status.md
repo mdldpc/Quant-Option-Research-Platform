@@ -361,3 +361,12 @@ Potential Topics:
 Status:
 
 READY TO START
+
+Current Version:
+v1.0
+
+Development Status:
+Frozen
+
+Next Active Development:
+v2.0 Research Expansion
