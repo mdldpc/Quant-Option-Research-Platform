@@ -1,0 +1,54 @@
+# Python
+
+**pycache**/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+
+venv/
+.env
+
+# IDE
+
+.vscode/
+.idea/
+
+# OS
+
+.DS_Store
+Thumbs.db
+
+# Data
+
+data_raw/
+data_parquet/
+
+# Generated Research Files
+
+research/datasets/
+research/backtest/
+research/exports/
+research/reports/
+research/signals/
+
+# Figures
+
+research/figures/*.png
+
+# Logs
+
+logs/
+
+# Jupyter
+
+.ipynb_checkpoints/
+
+# Cache
+
+*.log
+*.tmp
+*.bak
+
+research/summaries/
+project_tree.txt
