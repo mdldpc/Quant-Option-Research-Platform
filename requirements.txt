@@ -2,7 +2,11 @@ numpy
 pandas
 scipy
 matplotlib
+
 pyarrow
 openpyxl
+
+python-docx
+
 jupyter
 ipykernel
