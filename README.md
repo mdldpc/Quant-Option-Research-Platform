@@ -1,124 +1,79 @@
 # Quant Option Research Platform
 
-A quantitative research platform for option volatility modeling, feature engineering, systematic strategy development, and backtesting based on high-frequency Chinese index option data.
+> **A modular quantitative research platform for implied volatility modelling, option analytics, systematic strategy development, and quantitative research.**
 
 ---
 
-## Project Overview
+# Project Status
 
-This project is a complete quantitative research framework designed for volatility-based option trading strategies.
+🟢 **Phase I Complete**
 
-Starting from raw high-frequency option and futures market data, the platform automatically performs:
+**Current Version**
 
-* Data engineering
-* Implied volatility estimation (Black-76)
-* Greeks calculation
-* Volatility surface construction
-* ATM term structure extraction
-* Feature engineering
-* Signal generation
-* Strategy backtesting
-* Transaction cost analysis
-* Robustness evaluation
-* Research visualization
+v1.0
 
-The goal is not only to implement pricing models, but also to provide a reusable research framework for quantitative option strategy development.
+**Latest Deliverables**
 
----
+* Seven-Goal Project Report v1.0
+* RQ1 Research Report v1.0
+* Technical Documentation
+* Automated Report Builder
+* Quantitative Research Platform
 
-## Key Features
+**Current Focus**
 
-### Market Data Engineering
-
-* High-frequency option and futures data processing
-* Efficient parquet-based storage
-* Tick-level data pipeline
-* Automatic preprocessing and cleaning
-
-### Volatility Modeling
-
-* Black-76 implied volatility solver
-* ATM implied volatility extraction
-* Volatility smile construction
-* Volatility surface generation
-* ATM term structure analysis
-
-### Greeks Engine
-
-Automatic calculation of
-
-* Delta
-* Gamma
-* Vega
-* Theta
-* Vanna
-* Vomma
-* Speed
-
-for every option observation.
-
-### Feature Engineering
-
-Generate research features including
-
-* ATM IV
-* IV Z-score
-* Term structure slope
-* Rolling statistics
-* Signal score
-
-### Trading Strategy
-
-Current Version (V1.0)
-
-* Long-only volatility strategy
-* ATM straddle selection
-* Signal-driven entry
-* Rule-based exit
-* Real option price backtest
-
-### Backtesting Framework
-
-Performance metrics include
-
-* Win Rate
-* Average Return
-* Sharpe Ratio
-* Profit Factor
-* Maximum Drawdown
-* Holding Days
-* Equity Curve
-
-### Robustness Framework
-
-Automatic evaluation under different parameters
-
-* Signal Threshold
-* Holding Period
-* Transaction Cost
-
-Future versions will support
-
-* Walk-forward validation
-* Rolling window testing
-* Multi-year backtesting
-* Strategy comparison
+Phase II Research Planning
 
 ---
 
-## Research Pipeline
+# Project Overview
 
-```
-Raw Tick Data
+The Quant Option Research Platform is a modular research framework developed for quantitative option analysis.
+
+The project integrates data engineering, implied volatility modelling, volatility surface construction, quantitative signal generation, systematic backtesting, and robustness analysis into a unified research platform.
+
+Rather than being a collection of independent analysis scripts, the platform provides a reproducible and extensible workflow capable of supporting future quantitative research and strategy development.
+
+---
+
+# Project Objectives
+
+The original project was designed around seven major objectives:
+
+* Data Acquisition
+* Data Preprocessing
+* Data Cleaning
+* Implied Volatility Surface & Term Structure Construction
+* Strategy Construction
+* Backtesting Framework
+* Risk & Robustness Analysis
+
+All seven objectives have been successfully completed during **Phase I**.
+
+---
+
+# Research Workflow
+
+```text
+Raw Market Data
         │
         ▼
-Data Engineering
+Data Inspection
         │
         ▼
-Black-76 Implied Volatility
+Data Preprocessing
+        │
+        ▼
+Data Cleaning
+        │
+        ▼
+Implied Volatility Estimation
         │
         ▼
 Greeks Calculation
+        │
+        ▼
+Volatility Smile
         │
         ▼
 Volatility Surface
@@ -127,154 +82,253 @@ Volatility Surface
 ATM Term Structure
         │
         ▼
-Feature Engineering
-        │
-        ▼
 Signal Generation
         │
         ▼
-Option Strategy
+Strategy Construction
         │
         ▼
 Backtesting
         │
         ▼
-Robustness Analysis
+Risk & Robustness
         │
         ▼
-Research Dashboard
+Research Reports
 ```
 
 ---
 
-## Project Structure
+# Project Architecture
+
+The platform follows a modular architecture.
 
 ```
 Quant_Option_Project/
 
 analysis/
-backtest/
 config/
-core/
 docs/
-experiments/
 research/
 scripts/
-strategy/
-utils/
+tests/
 
-data_raw/
-data_parquet/
+README.md
+requirements.txt
+```
+
+Major modules include:
+
+* Data Processing
+* IV Engine
+* Greeks Engine
+* Smile Module
+* Surface Module
+* Term Structure Module
+* Signal Generation
+* Strategy Module
+* Backtesting Module
+* Robustness Module
+* Report Builder
+
+---
+
+# Current Research
+
+## Completed
+
+### RQ1
+
+**Daily ATM Implied Volatility Distribution**
+
+Completed.
+
+Research notebook and technical report available.
+
+---
+
+## Planned
+
+### RQ2
+
+ATM Term Structure Dynamics
+
+### RQ3
+
+Volatility Smile Dynamics
+
+Additional research questions will be developed during Phase II.
+
+---
+
+# Generated Outputs
+
+## Research Datasets
+
+* Daily IV summaries
+* Greeks summaries
+* Smile datasets
+* Surface datasets
+* ATM term structure datasets
+* Signal datasets
+* Backtesting datasets
+* Robustness datasets
+
+---
+
+## Research Figures
+
+Automatically generated figures include:
+
+* IV Distribution
+* Volatility Smile
+* Volatility Surface
+* ATM Term Structure
+* Greeks
+* Signal Analysis
+* Equity Curve
+* Drawdown
+* Robustness Dashboard
+
+---
+
+## Reports
+
+* Seven-Goal Project Report
+* RQ1 Research Report
+* Technical Documentation
+
+---
+
+# Technology Stack
+
+## Programming
+
+* Python 3.14
+
+## Scientific Computing
+
+* NumPy
+* Pandas
+* SciPy
+
+## Visualization
+
+* Matplotlib
+
+## Data Storage
+
+* PyArrow
+* OpenPyXL
+
+## Development
+
+* Visual Studio Code
+* Jupyter
+* Git
+* GitHub
+
+---
+
+# Repository Structure
+
+```
+analysis/
+    Reusable quantitative analysis modules
+
+config/
+    Project configuration
+
+docs/
+    Documentation
+    Methodology
+    Changelog
+    Project Status
+
+research/
+
+    exports/
+    figures/
+    notebooks/
+    reports/
+    studies/
+    summaries/
+
+scripts/
+    Data processing
+    Automation
+    Report generation
+
+tests/
+    Validation scripts
 ```
 
 ---
 
-## Quick Start
+# Latest Release
 
-### 1. Clone the repository
+## Phase I
 
-```bash
-git clone <repository-url>
-cd Quant_Option_Project
-```
+Completed Components
 
-### 2. Install dependencies
+* Data Engineering Pipeline
+* Black-76 IV Engine
+* Greeks Engine
+* Volatility Smile Analysis
+* Volatility Surface Construction
+* ATM Term Structure Analysis
+* Signal Generation
+* Strategy Prototype
+* Backtesting Framework
+* Robustness Analysis
+* Automated Report Builder
+* Technical Documentation
 
-```bash
-pip install -r requirements.txt
-```
+Status:
 
-### 3. Run the complete research pipeline
-
-```bash
-python run_all.py
-```
-
-### 4. Or run individual modules
-
-```bash
-python scripts/run_option_backtest_v2.py
-
-python scripts/run_transaction_cost_analysis.py
-
-python scripts/run_robustness_suite.py
-
-python scripts/run_robustness_dashboard.py
-```
+**Phase I Complete**
 
 ---
 
-## Current Research Status
+# Future Development
 
-| Module                    | Status |
-| ------------------------- | ------ |
-| Data Engineering          | ✅      |
-| Black-76 IV               | ✅      |
-| Greeks Engine             | ✅      |
-| Volatility Surface        | ✅      |
-| ATM Term Structure        | ✅      |
-| Feature Engineering       | ✅      |
-| Signal Engine             | ✅      |
-| Strategy Engine           | ✅      |
-| Option Backtest           | ✅      |
-| Transaction Cost Analysis | ✅      |
-| Robustness Framework      | ✅      |
-| Dashboard                 | ✅      |
+Phase II will focus on extending the platform through:
 
-Current Version
+* Additional historical datasets
+* RQ2 and RQ3 research
+* Advanced volatility modelling
+* Calendar spread strategies
+* Volatility arbitrage
+* Multi-factor option strategies
+* Portfolio optimization
+* Automated PDF report generation
+
+---
+
+# Project Philosophy
+
+This project aims to build a reproducible quantitative research platform rather than a collection of independent scripts.
+
+Every research result, dataset, figure, and report is designed to be generated programmatically from standardized workflows, enabling future extension, verification, and collaboration.
+
+---
+
+# License
+
+This repository is intended for academic research, quantitative finance education, and personal portfolio demonstration.
+
+---
+
+# Acknowledgements
+
+This project was developed as an independent quantitative research initiative to explore implied volatility modelling, option analytics, and systematic strategy development.
+
+---
+
+**Quant Option Research Platform**
 
 **Version 1.0**
 
----
+**Phase I Complete**
 
-## Current Results
-
-Current implementation includes
-
-* Long-only ATM straddle strategy
-* Rule-based signal engine
-* Transaction cost sensitivity analysis
-* Robustness dashboard
-
-The platform has been successfully validated on real option market data.
-
----
-
-## Future Development
-
-Version 2.0
-
-* Rolling window validation
-* Walk-forward testing
-* Multi-period backtesting
-* Strategy optimization
-* Portfolio construction
-* Delta-neutral strategies
-* Vega-neutral strategies
-* Machine learning signal generation
-
----
-
-## Technologies
-
-Python
-
-Main libraries
-
-* pandas
-* numpy
-* scipy
-* matplotlib
-* pyarrow
-
-Pricing model
-
-* Black-76
-
----
-
-## Author
-
-Developed as an independent quantitative research project focusing on systematic option trading and volatility modeling.
-
-This project is continuously evolving toward a production-level quantitative research platform.
+June 2026
