@@ -1,61 +1,138 @@
+# ==========================================================
 # Python
+# ==========================================================
 
-**pycache**/
+__pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 
+# Python build
+build/
+dist/
+*.egg-info/
+
+
+# ==========================================================
 # Virtual Environment
+# ==========================================================
 
 venv/
 .env
+.env.*
 
-# IDE
+
+# ==========================================================
+# IDE / Editor
+# ==========================================================
 
 .vscode/
 .idea/
 
-# OS
+*.swp
+*.swo
+
+
+# ==========================================================
+# Operating System
+# ==========================================================
 
 .DS_Store
 Thumbs.db
 
-# Data
 
+# ==========================================================
+# Market Data
+# ==========================================================
+
+# Raw / processed market data
+data/**/*.csv
+data/**/*.parquet
+
+# Legacy data folders
 data_raw/
 data_parquet/
 
-# Generated Research Files
+
+# ==========================================================
+# Research Generated Data
+# ==========================================================
 
 research/datasets/
 research/backtest/
 research/exports/
-# Generated reports
-research/reports/*.docx
 
-# Keep released PDFs
-!research/reports/
-!research/reports/*.pdf
-# Auto-generated text reports
-research/reports/*.txt
 research/signals/
+research/summaries/
 
-# Figures
 
+# ==========================================================
+# Generated Reports / Logs
+# ==========================================================
+
+# Temporary text reports
+research/reports/*.txt
+research/reports/*.log
+
+# Temporary summaries
+research/reports/*_summary.*
+
+# Archive old versions if created
+research/archive/
+
+
+# ==========================================================
+# Generated Figures
+# ==========================================================
+
+# Large generated charts
 research/figures/*.png
+research/figures/*.jpg
 
-# Logs
+research/reports/charts/
+research/reports/charts_v3/
+
+
+# ==========================================================
+# Documentation Release Files
+# ==========================================================
+
+# Keep official Word/PDF documentation
+
+!research/reports/*.docx
+!research/reports/*.pdf
+
+
+# ==========================================================
+# Runtime Logs
+# ==========================================================
 
 logs/
-
-# Jupyter
-
-.ipynb_checkpoints/
-
-# Cache
 
 *.log
 *.tmp
 *.bak
 
-research/summaries/
+
+# ==========================================================
+# Jupyter
+# ==========================================================
+
+.ipynb_checkpoints/
+
+
+# ==========================================================
+# Cache
+# ==========================================================
+
+.cache/
+
+*.cache
+
+
+# ==========================================================
+# Project Temporary Files
+# ==========================================================
+
+tree.txt
 project_tree.txt

@@ -131,23 +131,51 @@ def main():
     plt.close(fig)
 
     # -------------------------------
-    # 5. Return Distribution
+    # 5. Individual Trade Returns
     # -------------------------------
     fig, ax = plt.subplots(figsize=(9, 6))
 
-    ax.hist(
-        df["net_return"],
-        bins=max(3, min(10, len(df))),
-        edgecolor="black",
+    plot_df = df.reset_index(drop=True).copy()
+    plot_df["trade_no"] = range(1, len(plot_df) + 1)
+
+    bars = ax.bar(
+        plot_df["trade_no"],
+        plot_df["net_return"],
+        width=0.6,
     )
 
-    ax.axvline(0, linestyle="--", linewidth=1)
+    # Zero-return reference line
+    ax.axhline(
+        0,
+        color="black",
+        linewidth=1,
+    )
 
-    ax.set_title("Option Strategy Return Distribution")
-    ax.set_xlabel("Net Return")
-    ax.set_ylabel("Frequency")
-    ax.xaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+    # Axis labels
+    ax.set_title("Individual Trade Returns")
+    ax.set_xlabel("Completed Trade")
+    ax.set_ylabel("Net Return")
+
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(1.0))
+
+    ax.set_xticks(plot_df["trade_no"])
+    ax.set_xticklabels(
+        [f"T{i}" for i in plot_df["trade_no"]]
+    )
+
     ax.grid(True, axis="y", alpha=0.3)
+
+    # Display return value above each bar
+    for bar, value in zip(bars, plot_df["net_return"]):
+
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            value,
+            f"{value:.2%}",
+            ha="center",
+            va="bottom" if value >= 0 else "top",
+            fontsize=9,
+        )
 
     save_plot(fig, "option_return_distribution.png")
     plt.close(fig)
