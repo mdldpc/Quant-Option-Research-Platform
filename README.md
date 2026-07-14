@@ -1,5 +1,7 @@
 # Quant Option Research Platform
 
+![System Architecture](docs/figures/system_architecture.png)
+
 A modular quantitative options research platform integrating volatility modeling, options strategy research, portfolio analytics, risk management, and automated research documentation.
 
 ---
@@ -10,37 +12,24 @@ The **Quant Option Research Platform** is a research-oriented quantitative frame
 
 The platform connects the full quantitative research lifecycle:
 
-```
-Market Data
-      |
-      v
-Data Cleaning & Standardization
-      |
-      v
-Volatility Research
-(IV Surface / Smile / Term Structure)
-      |
-      v
-Strategy Construction
-      |
-      v
-Backtesting & Performance Analysis
-      |
-      v
-Portfolio Management
-      |
-      v
-Risk Monitoring
-      |
-      v
-Automated Research Documentation
-```
+![Research Workflow](docs/figures/strategy_pipeline.png)
+
 
 The objective of this project is to bridge the gap between quantitative research prototypes and a structured research infrastructure.
+
+The framework focuses on:
+
+- Volatility research
+- Options strategy development
+- Portfolio analytics
+- Risk monitoring
+- Automated technical documentation
+
 
 ---
 
 # Key Features
+
 
 ## 1. Volatility Research Engine
 
@@ -53,7 +42,8 @@ Main capabilities:
 - Volatility surface construction
 - Term structure analysis
 - ATM volatility monitoring
-- Moneyness-based volatility bucket analysis
+- Moneyness-based volatility analysis
+
 
 Research outputs include:
 
@@ -61,6 +51,7 @@ Research outputs include:
 - Smile evolution analysis
 - Term structure monitoring
 - Volatility signal generation
+
 
 ---
 
@@ -79,6 +70,7 @@ Each strategy is represented through a structured research record containing:
 - Limitations
 - Future extensions
 
+
 Current research strategies include:
 
 - Volatility strategies
@@ -86,7 +78,9 @@ Current research strategies include:
 - Calendar spreads
 - Butterfly structures
 
+
 The framework allows future strategies to be added without redesigning the research infrastructure.
+
 
 ---
 
@@ -100,11 +94,13 @@ The portfolio layer provides systematic portfolio analytics:
 - Portfolio Greeks calculation
 - Risk snapshot generation
 
+
 Core components:
 
 - PositionBook
 - Portfolio Engine
 - NAV Engine
+
 
 ---
 
@@ -119,15 +115,17 @@ Covered risk measures include:
 - Vega exposure
 - Portfolio risk status
 
+
 The system generates:
 
 - Exposure reports
 - Risk dashboards
 - Portfolio monitoring summaries
 
+
 ---
 
-## 5. Automated Research Documentation
+# Automated Research Documentation
 
 A key feature of this project is automated technical documentation generation.
 
@@ -151,12 +149,14 @@ Automated Report Builder
 Technical Documentation
 ```
 
+
 Generated documents include:
 
 - English technical white paper
 - Chinese technical white paper
 - Strategy documentation
 - Research summaries
+
 
 ---
 
@@ -175,7 +175,7 @@ Quant Option Research Platform
 |      Research analysis modules
 |
 ├── Volatility Engine
-|      IV, Smile, Surface, Term Structure
+|      IV / Smile / Surface / Term Structure
 |
 ├── Strategy Framework
 |      Strategy registry and backtesting
@@ -192,6 +192,27 @@ Quant Option Research Platform
 └── Reporting Framework
        Automated documentation generation
 ```
+
+
+---
+
+# Selected Research Outputs
+
+
+## Volatility Surface
+
+![Volatility Surface](docs/figures/volatility_surface.png)
+
+
+## Portfolio Performance
+
+![Portfolio NAV](docs/figures/portfolio_nav.png)
+
+
+## Risk Monitoring
+
+![Risk Dashboard](docs/figures/risk_dashboard.png)
+
 
 ---
 
@@ -214,11 +235,12 @@ Quant-Option-Research-Platform
 |      Research pipelines and automation scripts
 |
 ├── docs/
-|      Research design documents
+|      Research design documents and figures
 |
 └── research/
        Reports and documentation
 ```
+
 
 ---
 
@@ -226,17 +248,20 @@ Quant-Option-Research-Platform
 
 Complete technical documentation is available in:
 
+
 ## English White Paper
 
 ```
 research/reports/quant_option_technical_white_paper_v3_0.docx
 ```
 
+
 ## Chinese White Paper
 
 ```
 research/reports/quant_option_technical_white_paper_cn_v1_0.docx
 ```
+
 
 The documents cover:
 
@@ -247,9 +272,11 @@ The documents cover:
 - Risk monitoring
 - System architecture
 
+
 ---
 
 # Installation
+
 
 Clone the repository:
 
@@ -259,11 +286,13 @@ git clone https://github.com/mdldpc/Quant-Option-Research-Platform.git
 cd Quant-Option-Research-Platform
 ```
 
+
 Create a virtual environment:
 
 ```bash
 python -m venv venv
 ```
+
 
 Activate environment:
 
@@ -273,11 +302,13 @@ Activate environment:
 venv\Scripts\activate
 ```
 
+
 ### Linux / macOS
 
 ```bash
 source venv/bin/activate
 ```
+
 
 Install dependencies:
 
@@ -285,33 +316,37 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+
 ---
 
 # Usage
 
-## Run Research Scripts
 
-Individual research modules can be executed through:
+## Run Research Scripts
 
 ```bash
 python scripts/<script_name>.py
 ```
 
+
 ---
 
 ## Generate Documentation
 
-### English Documentation
+
+English:
 
 ```bash
 python -m scripts.rebuild.build_documentation_v3_1
 ```
 
-### Chinese Documentation
+
+Chinese:
 
 ```bash
 python -m scripts.rebuild.build_documentation_cn_v1_0
 ```
+
 
 The pipeline automatically generates:
 
@@ -319,11 +354,11 @@ The pipeline automatically generates:
 - Tables
 - Technical documentation
 
+
 ---
 
 # Research Workflow
 
-A typical workflow:
 
 ```
 1. Prepare Market Data
@@ -359,6 +394,7 @@ A typical workflow:
 7. Generate Research Report
 ```
 
+
 ---
 
 # Future Roadmap
@@ -371,6 +407,7 @@ Potential extensions:
 - Machine learning based volatility forecasting
 - Real-time market data integration
 - Cloud-based research deployment
+
 
 ---
 
