@@ -10,3 +10,6 @@ python-docx
 
 jupyter
 ipykernel
+
+scikit-learn
+statsmodels
