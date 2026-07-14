@@ -1,334 +1,379 @@
 # Quant Option Research Platform
 
-> **A modular quantitative research platform for implied volatility modelling, option analytics, systematic strategy development, and quantitative research.**
+A modular quantitative options research platform integrating volatility modeling, options strategy research, portfolio analytics, risk management, and automated research documentation.
 
 ---
 
-# Project Status
+# Overview
 
-🟢 **Phase I Complete**
+The **Quant Option Research Platform** is a research-oriented quantitative framework designed to build a complete and reproducible workflow for systematic options research.
 
-**Current Version**
+The platform connects the full quantitative research lifecycle:
 
-v1.0
+```
+Market Data
+      |
+      v
+Data Cleaning & Standardization
+      |
+      v
+Volatility Research
+(IV Surface / Smile / Term Structure)
+      |
+      v
+Strategy Construction
+      |
+      v
+Backtesting & Performance Analysis
+      |
+      v
+Portfolio Management
+      |
+      v
+Risk Monitoring
+      |
+      v
+Automated Research Documentation
+```
 
-**Latest Deliverables**
-
-* Seven-Goal Project Report v1.0
-* RQ1 Research Report v1.0
-* Technical Documentation
-* Automated Report Builder
-* Quantitative Research Platform
-
-**Current Focus**
-
-Phase II Research Planning
+The objective of this project is to bridge the gap between quantitative research prototypes and a structured research infrastructure.
 
 ---
 
-# Project Overview
+# Key Features
 
-The Quant Option Research Platform is a modular research framework developed for quantitative option analysis.
+## 1. Volatility Research Engine
 
-The project integrates data engineering, implied volatility modelling, volatility surface construction, quantitative signal generation, systematic backtesting, and robustness analysis into a unified research platform.
+The volatility research module focuses on analyzing option market structures.
 
-Rather than being a collection of independent analysis scripts, the platform provides a reproducible and extensible workflow capable of supporting future quantitative research and strategy development.
+Main capabilities:
+
+- Implied volatility calculation
+- Volatility smile analysis
+- Volatility surface construction
+- Term structure analysis
+- ATM volatility monitoring
+- Moneyness-based volatility bucket analysis
+
+Research outputs include:
+
+- IV surface visualization
+- Smile evolution analysis
+- Term structure monitoring
+- Volatility signal generation
 
 ---
 
-# Project Objectives
+## 2. Strategy Research Framework
 
-The original project was designed around seven major objectives:
+The strategy layer adopts a modular registry-based architecture.
 
-* Data Acquisition
-* Data Preprocessing
-* Data Cleaning
-* Implied Volatility Surface & Term Structure Construction
-* Strategy Construction
-* Backtesting Framework
-* Risk & Robustness Analysis
+Each strategy is represented through a structured research record containing:
 
-All seven objectives have been successfully completed during **Phase I**.
+- Strategy motivation
+- Construction rules
+- Entry and exit logic
+- Greeks profile
+- Backtest evidence
+- Performance summary
+- Limitations
+- Future extensions
+
+Current research strategies include:
+
+- Volatility strategies
+- Strangle structures
+- Calendar spreads
+- Butterfly structures
+
+The framework allows future strategies to be added without redesigning the research infrastructure.
+
+---
+
+## 3. Portfolio Management Engine
+
+The portfolio layer provides systematic portfolio analytics:
+
+- Position tracking
+- NAV calculation
+- Exposure aggregation
+- Portfolio Greeks calculation
+- Risk snapshot generation
+
+Core components:
+
+- PositionBook
+- Portfolio Engine
+- NAV Engine
+
+---
+
+## 4. Risk Management Framework
+
+The risk module evaluates portfolio exposure through option Greeks.
+
+Covered risk measures include:
+
+- Delta exposure
+- Gamma exposure
+- Vega exposure
+- Portfolio risk status
+
+The system generates:
+
+- Exposure reports
+- Risk dashboards
+- Portfolio monitoring summaries
+
+---
+
+## 5. Automated Research Documentation
+
+A key feature of this project is automated technical documentation generation.
+
+The reporting framework transforms research outputs into structured documents.
+
+Workflow:
+
+```
+Research Data
+      |
+      v
+Analysis Pipeline
+      |
+      v
+Visualization Generation
+      |
+      v
+Automated Report Builder
+      |
+      v
+Technical Documentation
+```
+
+Generated documents include:
+
+- English technical white paper
+- Chinese technical white paper
+- Strategy documentation
+- Research summaries
+
+---
+
+# System Architecture
+
+The project follows a modular architecture:
+
+```
+Quant Option Research Platform
+
+|
+├── Data Layer
+|      Market data loading and preprocessing
+|
+├── Analysis Layer
+|      Research analysis modules
+|
+├── Volatility Engine
+|      IV, Smile, Surface, Term Structure
+|
+├── Strategy Framework
+|      Strategy registry and backtesting
+|
+├── Portfolio Engine
+|      Position and NAV management
+|
+├── Risk Engine
+|      Greeks and exposure monitoring
+|
+├── Monitoring Layer
+|      Risk status and reporting
+|
+└── Reporting Framework
+       Automated documentation generation
+```
+
+---
+
+# Project Structure
+
+```
+Quant-Option-Research-Platform
+
+|
+├── analysis/
+|      Research analysis modules
+|
+├── config/
+|      Configuration and research settings
+|
+├── framework/
+|      Core quantitative research framework
+|
+├── scripts/
+|      Research pipelines and automation scripts
+|
+├── docs/
+|      Research design documents
+|
+└── research/
+       Reports and documentation
+```
+
+---
+
+# Research Documentation
+
+Complete technical documentation is available in:
+
+## English White Paper
+
+```
+research/reports/quant_option_technical_white_paper_v3_0.docx
+```
+
+## Chinese White Paper
+
+```
+research/reports/quant_option_technical_white_paper_cn_v1_0.docx
+```
+
+The documents cover:
+
+- Research methodology
+- Volatility analysis
+- Strategy framework
+- Portfolio management
+- Risk monitoring
+- System architecture
+
+---
+
+# Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/mdldpc/Quant-Option-Research-Platform.git
+
+cd Quant-Option-Research-Platform
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate environment:
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# Usage
+
+## Run Research Scripts
+
+Individual research modules can be executed through:
+
+```bash
+python scripts/<script_name>.py
+```
+
+---
+
+## Generate Documentation
+
+### English Documentation
+
+```bash
+python -m scripts.rebuild.build_documentation_v3_1
+```
+
+### Chinese Documentation
+
+```bash
+python -m scripts.rebuild.build_documentation_cn_v1_0
+```
+
+The pipeline automatically generates:
+
+- Research figures
+- Tables
+- Technical documentation
 
 ---
 
 # Research Workflow
 
-```text
-Raw Market Data
-        │
-        ▼
-Data Inspection
-        │
-        ▼
-Data Preprocessing
-        │
-        ▼
-Data Cleaning
-        │
-        ▼
-Implied Volatility Estimation
-        │
-        ▼
-Greeks Calculation
-        │
-        ▼
-Volatility Smile
-        │
-        ▼
-Volatility Surface
-        │
-        ▼
-ATM Term Structure
-        │
-        ▼
-Signal Generation
-        │
-        ▼
-Strategy Construction
-        │
-        ▼
-Backtesting
-        │
-        ▼
-Risk & Robustness
-        │
-        ▼
-Research Reports
+A typical workflow:
+
+```
+1. Prepare Market Data
+
+        |
+        v
+
+2. Build Research Dataset
+
+        |
+        v
+
+3. Analyze Volatility Structure
+
+        |
+        v
+
+4. Generate Strategy Signals
+
+        |
+        v
+
+5. Run Backtests
+
+        |
+        v
+
+6. Evaluate Portfolio Risk
+
+        |
+        v
+
+7. Generate Research Report
 ```
 
 ---
 
-# Project Architecture
-
-The platform follows a modular architecture.
-
-```
-Quant_Option_Project/
-
-analysis/
-config/
-docs/
-research/
-scripts/
-tests/
-
-README.md
-requirements.txt
-```
-
-Major modules include:
-
-* Data Processing
-* IV Engine
-* Greeks Engine
-* Smile Module
-* Surface Module
-* Term Structure Module
-* Signal Generation
-* Strategy Module
-* Backtesting Module
-* Robustness Module
-* Report Builder
-
----
-
-# Current Research
-
-## Completed
-
-### RQ1
-
-**Daily ATM Implied Volatility Distribution**
-
-Completed.
-
-Research notebook and technical report available.
-
----
-
-## Planned
-
-### RQ2
-
-ATM Term Structure Dynamics
-
-### RQ3
-
-Volatility Smile Dynamics
-
-Additional research questions will be developed during Phase II.
-
----
-
-# Generated Outputs
-
-## Research Datasets
-
-* Daily IV summaries
-* Greeks summaries
-* Smile datasets
-* Surface datasets
-* ATM term structure datasets
-* Signal datasets
-* Backtesting datasets
-* Robustness datasets
-
----
-
-## Research Figures
-
-Automatically generated figures include:
-
-* IV Distribution
-* Volatility Smile
-* Volatility Surface
-* ATM Term Structure
-* Greeks
-* Signal Analysis
-* Equity Curve
-* Drawdown
-* Robustness Dashboard
-
----
-
-## Reports
-
-* Seven-Goal Project Report
-* RQ1 Research Report
-* Technical Documentation
-
----
-
-# Technology Stack
-
-## Programming
-
-* Python 3.14
-
-## Scientific Computing
-
-* NumPy
-* Pandas
-* SciPy
-
-## Visualization
-
-* Matplotlib
-
-## Data Storage
-
-* PyArrow
-* OpenPyXL
-
-## Development
-
-* Visual Studio Code
-* Jupyter
-* Git
-* GitHub
-
----
-
-# Repository Structure
-
-```
-analysis/
-    Reusable quantitative analysis modules
-
-config/
-    Project configuration
-
-docs/
-    Documentation
-    Methodology
-    Changelog
-    Project Status
-
-research/
-
-    exports/
-    figures/
-    notebooks/
-    reports/
-    studies/
-    summaries/
-
-scripts/
-    Data processing
-    Automation
-    Report generation
-
-tests/
-    Validation scripts
-```
-
----
-
-# Latest Release
-
-## Phase I
-
-Completed Components
-
-* Data Engineering Pipeline
-* Black-76 IV Engine
-* Greeks Engine
-* Volatility Smile Analysis
-* Volatility Surface Construction
-* ATM Term Structure Analysis
-* Signal Generation
-* Strategy Prototype
-* Backtesting Framework
-* Robustness Analysis
-* Automated Report Builder
-* Technical Documentation
-
-Status:
-
-**Phase I Complete**
-
----
-
-# Future Development
-
-Phase II will focus on extending the platform through:
-
-* Additional historical datasets
-* RQ2 and RQ3 research
-* Advanced volatility modelling
-* Calendar spread strategies
-* Volatility arbitrage
-* Multi-factor option strategies
-* Portfolio optimization
-* Automated PDF report generation
-
----
-
-# Project Philosophy
-
-This project aims to build a reproducible quantitative research platform rather than a collection of independent scripts.
-
-Every research result, dataset, figure, and report is designed to be generated programmatically from standardized workflows, enabling future extension, verification, and collaboration.
+# Future Roadmap
+
+Potential extensions:
+
+- Additional volatility strategies
+- More comprehensive historical datasets
+- Advanced portfolio optimization
+- Machine learning based volatility forecasting
+- Real-time market data integration
+- Cloud-based research deployment
 
 ---
 
 # License
 
-This repository is intended for academic research, quantitative finance education, and personal portfolio demonstration.
-
----
-
-# Acknowledgements
-
-This project was developed as an independent quantitative research initiative to explore implied volatility modelling, option analytics, and systematic strategy development.
-
----
-
-**Quant Option Research Platform**
-
-**Version 1.0**
-
-**Phase I Complete**
-
-June 2026
+This project is developed for quantitative research and educational purposes.
