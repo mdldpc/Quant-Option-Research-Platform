@@ -140,3 +140,6 @@ project_tree.txt
 # Test outputs
 tests/test_report.txt
 tests/test_trades.csv
+
+# Generated research charts
+research/reports/backtest_charts/
