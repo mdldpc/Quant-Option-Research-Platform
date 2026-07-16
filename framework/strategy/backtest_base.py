@@ -21,6 +21,20 @@ class BaseBacktester(ABC):
     def run(self) -> pd.DataFrame:
         raise NotImplementedError
 
+    def backtest(
+        self,
+        report_path: Path,
+        trades_path: Path,
+    ) -> BacktestResult:
+
+        out = self.run()
+
+        return self.finalize(
+            out,
+            report_path,
+            trades_path,
+        )
+
     def finalize(
         self,
         out: pd.DataFrame,
