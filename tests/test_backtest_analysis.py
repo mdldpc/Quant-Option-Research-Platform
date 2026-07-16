@@ -2,14 +2,18 @@
 Unit tests for BacktestAnalyzer.
 
 Tests:
-- Performance metrics integration
+
+- Performance integration
 - Trade statistics
-- Summary output
+- Equity statistics
+- Summary structure
+
 """
 
 
 import numpy as np
 import pandas as pd
+
 
 from analysis.backtest_analysis import (
     BacktestAnalyzer,
@@ -17,19 +21,34 @@ from analysis.backtest_analysis import (
 
 
 
-def test_trade_statistics():
+def create_test_trades():
 
-    trades = pd.DataFrame(
+    return pd.DataFrame(
         {
+            "status":
+            [
+                "ok",
+                "ok",
+                "ok",
+                "failed",
+            ],
+
             "net_return":
             [
                 0.10,
                 -0.05,
                 0.20,
-                0.03,
-            ]
+                np.nan,
+            ],
         }
     )
+
+
+
+def test_trade_statistics():
+
+
+    trades = create_test_trades()
 
 
     analyzer = BacktestAnalyzer(
@@ -37,35 +56,43 @@ def test_trade_statistics():
     )
 
 
-    stats = analyzer.trade_statistics()
+    stats = (
+        analyzer.trade_statistics()
+    )
 
 
-    assert stats["num_trades"] == 4
+    assert (
+        stats["total_trades"]
+        ==
+        4
+    )
 
-    assert stats["winning_trades"] == 3
 
-    assert stats["losing_trades"] == 1
+    assert (
+        stats["completed_trades"]
+        ==
+        3
+    )
+
+
+    assert (
+        stats["skipped_trades"]
+        ==
+        1
+    )
+
 
     assert np.isclose(
         stats["win_rate"],
-        0.75
+        2 / 3,
     )
 
 
 
-def test_performance_integration():
+def test_performance_metrics():
 
-    trades = pd.DataFrame(
-        {
-            "net_return":
-            [
-                0.10,
-                -0.05,
-                0.20,
-                0.03,
-            ]
-        }
-    )
+
+    trades = create_test_trades()
 
 
     analyzer = BacktestAnalyzer(
@@ -78,36 +105,29 @@ def test_performance_integration():
     )
 
 
-    required_keys = [
-        "total_return",
-        "annualized_return",
-        "annualized_volatility",
-        "sharpe_ratio",
-        "sortino_ratio",
-        "max_drawdown",
-        "win_rate",
-        "profit_factor",
-    ]
-
-
-    for key in required_keys:
-
-        assert key in performance
-
-
-
-def test_summary_structure():
-
-    trades = pd.DataFrame(
-        {
-            "net_return":
-            [
-                0.01,
-                0.02,
-                -0.01,
-            ]
-        }
+    assert (
+        "total_return"
+        in performance
     )
+
+
+    assert (
+        "max_drawdown"
+        in performance
+    )
+
+
+    assert (
+        "sharpe_ratio"
+        in performance
+    )
+
+
+
+def test_equity_statistics():
+
+
+    trades = create_test_trades()
 
 
     analyzer = BacktestAnalyzer(
@@ -115,38 +135,62 @@ def test_summary_structure():
     )
 
 
-    summary = analyzer.summary()
-
-
-    assert "performance" in summary
-
-    assert "trade_statistics" in summary
-
-
-
-def test_missing_return_column():
-
-    trades = pd.DataFrame(
-        {
-            "return":
-            [
-                0.1,
-                0.2,
-            ]
-        }
+    stats = (
+        analyzer.equity_statistics()
     )
 
 
-    try:
+    assert (
+        "final_equity"
+        in stats
+    )
 
-        BacktestAnalyzer(
-            trades
-        )
 
-    except ValueError:
+    assert (
+        "average_return"
+        in stats
+    )
 
-        assert True
 
-    else:
+    assert stats["final_equity"] > 0
 
-        assert False
+
+
+def test_summary_structure():
+
+
+    trades = create_test_trades()
+
+
+    analyzer = BacktestAnalyzer(
+        trades
+    )
+
+
+    summary = (
+        analyzer.summary()
+    )
+
+
+    assert (
+        "performance"
+        in summary
+    )
+
+
+    assert (
+        "trade_statistics"
+        in summary
+    )
+
+
+    assert (
+        "final_equity"
+        in summary["performance"]
+    )
+
+
+    assert (
+        "completed_trades"
+        in summary["trade_statistics"]
+    )

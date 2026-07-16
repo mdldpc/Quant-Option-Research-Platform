@@ -89,9 +89,9 @@ STRATEGY_REGISTRY = {
 
     "long_atm_straddle": {
 
-        "enabled": True,
+        "enabled": False,
 
-        "status": "production",
+        "status": "planned",
 
     },
 
@@ -111,11 +111,11 @@ STRATEGY_REGISTRY = {
 
     },
 
-    "butterfly": {
+    "long_call_butterfly": {
 
-        "enabled": False,
+        "enabled": True,
 
-        "status": "planned",
+        "status": "prototype",
 
     },
 

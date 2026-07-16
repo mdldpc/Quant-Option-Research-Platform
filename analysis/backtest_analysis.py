@@ -82,46 +82,40 @@ class BacktestAnalyzer:
     # --------------------------------------------------
 
     def trade_statistics(self):
-        """
-        Calculate trade-level statistics.
-        """
 
-        total_trades = len(
-            self.trades
+        total_trades = len(self.trades)
+
+
+        completed_trades = (
+            self.trades["status"]
+            == "ok"
+        ).sum()
+
+
+        skipped_trades = (
+            total_trades
+            -
+            completed_trades
         )
-
-
-        winning_trades = (
-            self.returns > 0
-        ).sum()
-
-
-        losing_trades = (
-            self.returns < 0
-        ).sum()
 
 
         return {
 
-            "num_trades":
+            "total_trades":
                 total_trades,
 
 
-            "winning_trades":
-                int(winning_trades),
+            "completed_trades":
+                int(completed_trades),
 
 
-            "losing_trades":
-                int(losing_trades),
+            "skipped_trades":
+                int(skipped_trades),
 
 
             "win_rate":
-                (
-                    winning_trades
-                    /
-                    total_trades
-                    if total_trades > 0
-                    else 0
+                float(
+                    (self.returns > 0).mean()
                 ),
 
         }
@@ -140,10 +134,35 @@ class BacktestAnalyzer:
         return {
 
             "performance":
-                self.performance(),
+            {
+                **self.performance(),
+
+                **self.equity_statistics(),
+            },
 
 
             "trade_statistics":
                 self.trade_statistics(),
+
+        }
+    
+    def equity_statistics(self):
+        """
+        Calculate equity related statistics.
+        """
+
+        equity = (
+            1 + self.returns
+        ).cumprod()
+
+
+        return {
+
+            "final_equity":
+                float(equity.iloc[-1]),
+
+
+            "average_return":
+                float(self.returns.mean()),
 
         }
