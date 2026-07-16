@@ -136,3 +136,7 @@ logs/
 
 tree.txt
 project_tree.txt
+
+# Test outputs
+tests/test_report.txt
+tests/test_trades.csv
