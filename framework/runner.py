@@ -2,6 +2,7 @@ from framework.registry import (
     list_all_strategies,
     enabled_strategies,
     get_strategy,
+    get_backtester,
 )
 
 from framework.contracts import (
@@ -16,6 +17,62 @@ from config.strategy_config import (
     RISK_CONFIG,
 )
 
+from pathlib import Path
+import pandas as pd
+
+def run_strategy(
+    strategy_name: str,
+    trades: pd.DataFrame,
+    report_path: Path,
+    trades_path: Path,
+):
+    """
+    Execute a registered strategy.
+
+    Workflow:
+
+    strategy name
+        |
+        v
+    registry
+        |
+        v
+    Backtester
+        |
+        v
+    BacktestResult
+
+    """
+
+    if strategy_name not in list_all_strategies():
+        raise KeyError(
+            f"Unknown strategy: {strategy_name}"
+        )
+
+
+    if not get_strategy(strategy_name)["enabled"]:
+        raise ValueError(
+            f"Strategy disabled: {strategy_name}"
+        )
+
+
+    backtester_class = get_backtester(
+        strategy_name
+    )
+
+
+    backtester = backtester_class(
+        trades
+    )
+
+
+    result = backtester.backtest(
+        report_path=report_path,
+        trades_path=trades_path,
+    )
+
+
+    return result
 
 def show_framework_status():
 
