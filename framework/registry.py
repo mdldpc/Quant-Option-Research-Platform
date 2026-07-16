@@ -18,6 +18,32 @@ Future strategy builders should register themselves here.
 
 from config.strategy_config import STRATEGY_REGISTRY
 
+from framework.strategy.backtesters.butterfly import (
+    ButterflyBacktester,
+)
+
+from framework.strategy.backtesters.calendar import (
+    CalendarBacktester,
+)
+
+from framework.strategy.backtesters.strangle import (
+    StrangleBacktester,
+)
+
+STRATEGY_CLASS_REGISTRY = {
+
+    "long_call_butterfly":
+        ButterflyBacktester,
+
+
+    "calendar_spread":
+        CalendarBacktester,
+
+
+    "long_atm_strangle":
+        StrangleBacktester,
+
+}
 
 def list_all_strategies():
     """
@@ -62,3 +88,13 @@ def get_strategy(strategy_name):
         raise KeyError(strategy_name)
 
     return STRATEGY_REGISTRY[strategy_name]
+
+def get_backtester(strategy_name):
+
+    if strategy_name not in STRATEGY_CLASS_REGISTRY:
+        raise KeyError(
+            f"No backtester registered for {strategy_name}"
+        )
+
+
+    return STRATEGY_CLASS_REGISTRY[strategy_name]
