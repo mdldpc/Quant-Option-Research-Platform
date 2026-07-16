@@ -2,7 +2,7 @@ from framework.reporting.report_builder import ReportBuilder
 
 from framework.strategy.contracts import BacktestResult
 
-
+from pathlib import Path
 
 def test_report_builder():
 
@@ -40,6 +40,12 @@ def test_report_builder():
             "sharpe_ratio":1.2
         },
 
+        charts={
+            "equity_curve": Path(
+                "equity.png"
+            )
+        },
+
         trade_statistics={
             "win_rate":0.5
         }
@@ -54,3 +60,10 @@ def test_report_builder():
 
 
     assert report.performance_metrics["sharpe_ratio"] == 1.2
+
+
+    assert (
+        report.charts["equity_curve"]
+        ==
+        Path("equity.png")
+    )

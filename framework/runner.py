@@ -1,3 +1,21 @@
+from framework.reporting.report_builder import (
+    ReportBuilder,
+)
+
+from framework.reporting.research_report_builder import (
+    ResearchReportBuilder,
+)
+
+from framework.reporting.backtest_charts import (
+    draw_equity_curve,
+    draw_drawdown,
+    draw_return_distribution,
+)
+
+from analysis.backtest_analysis import (
+    BacktestAnalyzer,
+)
+
 from framework.registry import (
     list_all_strategies,
     enabled_strategies,
@@ -73,6 +91,134 @@ def run_strategy(
 
 
     return result
+
+def run_strategy_report(
+    strategy_name: str,
+    trades: pd.DataFrame,
+    report_path: Path,
+    trades_path: Path,
+):
+    """
+    Complete research report pipeline.
+
+    Workflow:
+
+    Strategy
+        |
+        v
+    BacktestResult
+        |
+        v
+    Analytics
+        |
+        v
+    ReportData
+        |
+        v
+    Word Report
+
+    """
+
+
+    # -------------------------
+    # 1. Run Backtest
+    # -------------------------
+
+    result = run_strategy(
+        strategy_name=strategy_name,
+        trades=trades,
+        report_path=report_path,
+        trades_path=trades_path,
+    )
+
+
+    # -------------------------
+    # 2. Analyze Results
+    # -------------------------
+
+    analyzer = BacktestAnalyzer(
+        trades=pd.read_csv(
+            trades_path
+        )
+    )
+
+
+    performance = analyzer.performance()
+
+    statistics = analyzer.trade_statistics()
+
+
+
+    # -------------------------
+    # 3. Generate Charts
+    # -------------------------
+
+    analyzed_trades = pd.read_csv(
+        trades_path
+    )
+
+
+    charts = {
+
+        "equity_curve":
+            draw_equity_curve(
+                analyzed_trades
+            ),
+
+
+        "drawdown":
+            draw_drawdown(
+                analyzed_trades
+            ),
+
+
+        "return_distribution":
+            draw_return_distribution(
+                analyzed_trades
+            ),
+
+    }
+
+
+
+    # -------------------------
+    # 4. Build ReportData
+    # -------------------------
+
+    builder = ReportBuilder(
+        display_name=strategy_name
+    )
+
+
+    report_data = builder.build(
+
+        result,
+
+        performance_metrics=performance,
+
+        trade_statistics=statistics,
+
+        charts=charts,
+
+    )
+
+
+
+    # -------------------------
+    # 5. Generate Word Report
+    # -------------------------
+
+    doc_builder = ResearchReportBuilder()
+
+
+    doc_builder.build(
+        report_data,
+
+        report_path,
+    )
+
+
+    return report_data
 
 def show_framework_status():
 

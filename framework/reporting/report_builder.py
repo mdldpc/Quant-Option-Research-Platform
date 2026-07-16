@@ -36,6 +36,7 @@ class ReportBuilder:
         performance_metrics=None,
         trade_statistics=None,
         risk_metrics=None,
+        charts=None,
     ) -> ReportData:
         """
         Build report-ready data.
@@ -90,6 +91,13 @@ class ReportBuilder:
             risk_metrics=(
                 risk_metrics
                 if risk_metrics
+                else {}
+            ),
+
+
+            charts=(
+                charts
+                if charts
                 else {}
             ),
 
