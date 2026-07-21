@@ -1,13 +1,10 @@
+from shutil import which
 from pathlib import Path
 import subprocess
 
 
-class PDFExporter:
-    """
-    Convert DOCX reports into PDF.
 
-    Uses LibreOffice conversion engine.
-    """
+class PDFExporter:
 
 
     def convert(
@@ -15,6 +12,7 @@ class PDFExporter:
         docx_path,
         output_dir=None,
     ) -> Path:
+
 
         docx_path = Path(docx_path)
 
@@ -32,9 +30,24 @@ class PDFExporter:
         )
 
 
+        libreoffice = which(
+            "libreoffice"
+        )
+
+
+        if libreoffice is None:
+
+            raise RuntimeError(
+                "LibreOffice is required "
+                "for PDF conversion. "
+                "Please install LibreOffice "
+                "or add it to PATH."
+            )
+
+
         subprocess.run(
             [
-                "libreoffice",
+                libreoffice,
                 "--headless",
                 "--convert-to",
                 "pdf",
