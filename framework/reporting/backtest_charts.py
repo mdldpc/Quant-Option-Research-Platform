@@ -7,20 +7,22 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
 
-CHART_DIR = Path(
-    "research/reports/backtest_charts"
-)
 
 
-def _prepare_dir():
+def _prepare_dir(
+    chart_dir: Path
+):
 
-    CHART_DIR.mkdir(
+    chart_dir.mkdir(
         parents=True,
         exist_ok=True
     )
 
 
-def _save_plot(path: Path):
+
+def _save_plot(
+    path: Path
+):
 
     plt.tight_layout()
 
@@ -36,16 +38,18 @@ def _save_plot(path: Path):
 
 
 def draw_equity_curve(
-    trades: pd.DataFrame
+    trades: pd.DataFrame,
+    chart_dir: Path,
 ) -> Path:
     """
     Generate equity curve chart.
     """
 
-    _prepare_dir()
+    _prepare_dir(chart_dir)
+
 
     path = (
-        CHART_DIR
+        chart_dir
         /
         "equity_curve.png"
     )
@@ -81,17 +85,21 @@ def draw_equity_curve(
 
 
 
+
+
 def draw_drawdown(
-    trades: pd.DataFrame
+    trades: pd.DataFrame,
+    chart_dir: Path,
 ) -> Path:
     """
     Generate drawdown chart.
     """
 
-    _prepare_dir()
+    _prepare_dir(chart_dir)
+
 
     path = (
-        CHART_DIR
+        chart_dir
         /
         "drawdown.png"
     )
@@ -127,17 +135,21 @@ def draw_drawdown(
 
 
 
+
+
 def draw_return_distribution(
-    trades: pd.DataFrame
+    trades: pd.DataFrame,
+    chart_dir: Path,
 ) -> Path:
     """
     Generate return distribution.
     """
 
-    _prepare_dir()
+    _prepare_dir(chart_dir)
+
 
     path = (
-        CHART_DIR
+        chart_dir
         /
         "return_distribution.png"
     )

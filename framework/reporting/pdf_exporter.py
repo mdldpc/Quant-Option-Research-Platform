@@ -30,8 +30,10 @@ class PDFExporter:
         )
 
 
-        libreoffice = which(
-            "libreoffice"
+        libreoffice = (
+            which("libreoffice")
+            or
+            which("soffice")
         )
 
 

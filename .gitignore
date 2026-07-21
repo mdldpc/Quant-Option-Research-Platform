@@ -143,3 +143,6 @@ tests/test_trades.csv
 
 # Generated research charts
 research/reports/backtest_charts/
+
+# Generated research artifacts
+research/reports/

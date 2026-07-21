@@ -28,11 +28,32 @@ def test_backtest_charts(tmp_path):
     )
 
 
-    equity = draw_equity_curve(df)
+    chart_dir = tmp_path / "charts"
 
-    drawdown = draw_drawdown(df)
 
-    distribution = draw_return_distribution(df)
+    equity = draw_equity_curve(
+        df,
+        chart_dir,
+    )
+
+
+    drawdown = draw_drawdown(
+        df,
+        chart_dir,
+    )
+
+
+    distribution = draw_return_distribution(
+        df,
+        chart_dir,
+    )
+
+
+    assert equity.exists()
+
+    assert drawdown.exists()
+
+    assert distribution.exists()
 
 
 

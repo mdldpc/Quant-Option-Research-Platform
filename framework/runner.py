@@ -1,3 +1,7 @@
+from config.strategy_metadata import (
+    STRATEGY_METADATA,
+)
+
 from framework.reporting.report_builder import (
     ReportBuilder,
 )
@@ -10,6 +14,10 @@ from framework.reporting.backtest_charts import (
     draw_equity_curve,
     draw_drawdown,
     draw_return_distribution,
+)
+
+from framework.reporting.publication_pipeline import (
+    PublicationPipeline,
 )
 
 from analysis.backtest_analysis import (
@@ -33,6 +41,10 @@ from config.strategy_config import (
     SIGNAL_CONFIG,
     EXECUTION_CONFIG,
     RISK_CONFIG,
+)
+
+from framework.reporting.metadata_builder import (
+    MetadataBuilder,
 )
 
 from pathlib import Path
@@ -158,23 +170,33 @@ def run_strategy_report(
     )
 
 
+    chart_dir = (
+        Path(report_path).parent
+        /
+        "charts"
+    )
+
+
     charts = {
 
         "equity_curve":
             draw_equity_curve(
-                analyzed_trades
+                analyzed_trades,
+                chart_dir,
             ),
 
 
         "drawdown":
             draw_drawdown(
-                analyzed_trades
+                analyzed_trades,
+                chart_dir,
             ),
 
 
         "return_distribution":
             draw_return_distribution(
-                analyzed_trades
+                analyzed_trades,
+                chart_dir,
             ),
 
     }
@@ -185,40 +207,77 @@ def run_strategy_report(
     # 4. Build ReportData
     # -------------------------
 
+    metadata = STRATEGY_METADATA.get(
+        strategy_name,
+        {}
+    )
+
+
     builder = ReportBuilder(
-        display_name=strategy_name
+        display_name=metadata.get(
+            "display_name",
+            strategy_name
+        ),
+
+        strategy_description=metadata.get(
+            "description",
+            ""
+        ),
     )
 
 
     report_data = builder.build(
-
         result,
-
         performance_metrics=performance,
-
         trade_statistics=statistics,
-
         charts=charts,
-
     )
 
 
-
     # -------------------------
-    # 5. Generate Word Report
+    # 5. Publish
     # -------------------------
 
-    doc_builder = ResearchReportBuilder()
+    output_dir = Path(report_path).parent
 
 
-    doc_builder.build(
+    publisher = PublicationPipeline()
+
+
+    publication = publisher.publish(
         report_data,
-
-        report_path,
+        output_dir,
     )
 
 
-    return report_data
+    # -------------------------
+    # 6. Metadata
+    # -------------------------
+
+    MetadataBuilder().build(
+
+        output_dir,
+
+        strategy_name,
+
+        metadata.get(
+            "display_name",
+            strategy_name
+        ),
+
+        metadata.get(
+            "version",
+            "v1.2"
+        ),
+
+        metadata.get(
+            "category",
+            ""
+        ),
+    )
+
+
+    return publication
 
 def show_framework_status():
 
