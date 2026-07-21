@@ -30,6 +30,10 @@ from framework.strategy.backtesters.strangle import (
     StrangleBacktester,
 )
 
+from framework.strategy.backtesters.straddle import (
+    StraddleBacktester,
+)
+
 STRATEGY_CLASS_REGISTRY = {
 
     "long_call_butterfly":
@@ -43,6 +47,9 @@ STRATEGY_CLASS_REGISTRY = {
     "long_atm_strangle":
         StrangleBacktester,
 
+    "long_atm_straddle":
+        StraddleBacktester,
+        
 }
 
 def list_all_strategies():

@@ -89,9 +89,9 @@ STRATEGY_REGISTRY = {
 
     "long_atm_straddle": {
 
-        "enabled": False,
+        "enabled": True,
 
-        "status": "planned",
+        "status": "prototype",
 
     },
 

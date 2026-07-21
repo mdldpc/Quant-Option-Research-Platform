@@ -49,5 +49,33 @@ central strike.
 """,
 
     },
+    "long_atm_straddle":
 
+    {
+
+        "display_name":
+        "Long ATM Straddle",
+
+
+        "version":
+        "v1.0",
+
+
+        "category":
+        "Volatility Strategy",
+
+
+        "description":
+        """
+Long ATM Straddle is a long volatility
+options strategy constructed by buying
+an at-the-money call and put option.
+
+The strategy benefits from large price
+movements in either direction while the
+maximum loss is limited to the initial
+premium paid.
+""",
+
+    },
 }
