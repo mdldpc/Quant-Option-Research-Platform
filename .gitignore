@@ -146,3 +146,9 @@ research/reports/backtest_charts/
 
 # Generated research artifacts
 research/reports/
+
+# Zip files
+*.zip
+
+# Test outputs
+test_*.csv

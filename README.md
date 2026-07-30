@@ -1,293 +1,1018 @@
 # Quant Option Research Platform
 
-![System Architecture](docs/figures/system_architecture.png)
+An End-to-End Quantitative Option Research Framework Integrating Market Data Engineering, Volatility Analytics, Strategy Research, Backtesting, Portfolio Optimization, Risk Monitoring, and Automated Research Reporting.
 
-A modular quantitative options research platform integrating volatility modeling, options strategy research, portfolio analytics, risk management, and automated research documentation.
+Author: Jingzhe Yang
+
+Research Period: 2025-2026
+
 
 ---
 
-# Overview
+# 1. Project Overview
 
-The **Quant Option Research Platform** is a research-oriented quantitative framework designed to build a complete and reproducible workflow for systematic options research.
+Quant Option Research Platform is an end-to-end quantitative option research framework designed for systematic derivatives research.
 
-The platform connects the full quantitative research lifecycle:
+The project transforms raw option market data into a complete quantitative research workflow covering:
 
-![Research Workflow](docs/figures/strategy_pipeline.png)
-
-
-The objective of this project is to bridge the gap between quantitative research prototypes and a structured research infrastructure.
-
-The framework focuses on:
-
-- Volatility research
-- Options strategy development
-- Portfolio analytics
+- Market data processing
+- Option pricing analytics
+- Implied volatility estimation
+- Volatility smile and surface analysis
+- Greeks calculation
+- Strategy development
+- Backtesting
+- Portfolio optimization
 - Risk monitoring
-- Automated technical documentation
+- Automated reporting
+
+
+The complete research pipeline:
+
+```text
+Raw Market Data
+
+        ↓
+
+Data Engineering & Cleaning
+
+        ↓
+
+Option Analytics Engine
+(Black-76 / Implied Volatility / Greeks)
+
+        ↓
+
+Volatility Research
+(Smile / Surface / Term Structure)
+
+        ↓
+
+Strategy Research
+
+        ↓
+
+Backtesting Framework
+
+        ↓
+
+Portfolio Optimization
+
+        ↓
+
+Risk Monitoring & Hedge Analysis
+
+        ↓
+
+Automated Research Report Generation
+```
 
 
 ---
 
-# Key Features
+# 2. Project Background
+
+This project started from systematic option strategy research and gradually evolved into a complete quantitative research platform.
+
+The initial objectives were:
+
+- Build a reliable option market data pipeline
+- Understand volatility behavior
+- Develop systematic option strategies
+- Evaluate strategy performance
+- Construct portfolio-level analytics
 
 
-## 1. Volatility Research Engine
+The platform now consists of multiple research layers:
 
-The volatility research module focuses on analyzing option market structures.
+```text
+Market Data Layer
 
-Main capabilities:
+        ↓
 
-- Implied volatility calculation
-- Volatility smile analysis
-- Volatility surface construction
-- Term structure analysis
-- ATM volatility monitoring
-- Moneyness-based volatility analysis
+Analytics Layer
 
+        ↓
 
-Research outputs include:
+Strategy Layer
 
-- IV surface visualization
-- Smile evolution analysis
-- Term structure monitoring
-- Volatility signal generation
+        ↓
 
+Backtesting Layer
 
----
+        ↓
 
-## 2. Strategy Research Framework
+Portfolio Layer
 
-The strategy layer adopts a modular registry-based architecture.
+        ↓
 
-Each strategy is represented through a structured research record containing:
+Risk Layer
 
-- Strategy motivation
-- Construction rules
-- Entry and exit logic
-- Greeks profile
-- Backtest evidence
-- Performance summary
-- Limitations
-- Future extensions
+        ↓
 
-
-Current research strategies include:
-
-- Volatility strategies
-- Strangle structures
-- Calendar spreads
-- Butterfly structures
-
-
-The framework allows future strategies to be added without redesigning the research infrastructure.
+Reporting Layer
+```
 
 
 ---
 
-## 3. Portfolio Management Engine
-
-The portfolio layer provides systematic portfolio analytics:
-
-- Position tracking
-- NAV calculation
-- Exposure aggregation
-- Portfolio Greeks calculation
-- Risk snapshot generation
+# 3. System Architecture
 
 
-Core components:
+The platform follows a modular quantitative research architecture.
 
-- PositionBook
-- Portfolio Engine
-- NAV Engine
+```text
+                    Market Data
+
+                         |
+
+                         v
+
+              Data Processing Layer
+
+                         |
+
+                         v
+
+          Option Analytics Framework
+
+                         |
+
+                         v
+
+            Strategy Research Engine
+
+                         |
+
+                         v
+
+             Backtesting Framework
+
+                         |
+
+                         v
+
+          Portfolio Management System
+
+                         |
+
+                         v
+
+             Risk Monitoring System
+
+                         |
+
+                         v
+
+          Automated Report Generation
+```
 
 
 ---
 
-## 4. Risk Management Framework
-
-The risk module evaluates portfolio exposure through option Greeks.
-
-Covered risk measures include:
-
-- Delta exposure
-- Gamma exposure
-- Vega exposure
-- Portfolio risk status
+# 4. Key Achievements
 
 
-The system generates:
-
-- Exposure reports
-- Risk dashboards
-- Portfolio monitoring summaries
+| Module | Status |
+|---|---|
+| Raw market data processing | Completed |
+| Option contract parsing | Completed |
+| Futures-option alignment | Completed |
+| Implied volatility engine | Completed |
+| Volatility smile analysis | Completed |
+| Volatility surface research | Completed |
+| Term structure analysis | Completed |
+| Greeks calculation engine | Completed |
+| Strategy research framework | Completed |
+| Backtesting framework | Completed |
+| Portfolio optimization system | Completed |
+| Portfolio analytics | Completed |
+| Risk monitoring framework | Implemented |
+| Hedge analysis framework | Implemented |
+| Automated research reporting | Completed |
 
 
 ---
 
-# Automated Research Documentation
+# 5. Repository Structure
 
-A key feature of this project is automated technical documentation generation.
 
-The reporting framework transforms research outputs into structured documents.
+```text
+Quant_Option_Project/
+
+├── data_raw/
+│   Raw market data
+
+├── data/
+│   Processed research data
+
+├── data_parquet/
+│   Parquet storage
+
+├── core/
+│   Core quantitative components
+
+├── framework/
+│   Research infrastructure
+
+├── strategies/
+│   Option strategy implementations
+
+├── strategy/
+│   Strategy research modules
+
+├── backtest/
+│   Backtesting framework
+
+├── portfolio_all/
+│   Portfolio optimization and reporting
+
+├── analysis/
+│   Research analysis modules
+
+├── plot/
+│   Visualization modules
+
+├── research/
+│   Research outputs and reports
+
+├── scripts/
+│   Execution scripts
+
+├── docs/
+│   Documentation
+
+├── tests/
+│   Automated tests
+
+└── requirements.txt
+```
+
+
+---
+
+# 6. Data Engineering Layer
+
+
+## 6.1 Market Data
+
+
+The platform processes Chinese index option and futures market data.
+
+The raw dataset contains:
+
+- Option quotes
+- Futures prices
+- Multiple strikes
+- Multiple maturities
+- Intraday market information
+
+
+Typical raw format:
+
+```text
+CSV / XZ compressed files
+```
+
+
+Processed storage:
+
+```text
+Raw Data
+
+↓
+
+Clean Dataset
+
+↓
+
+Parquet Storage
+```
+
+
+The data layer focuses on:
+
+- Efficient loading
+- Memory optimization
+- Research reproducibility
+
+
+---
+
+## 6.2 Data Processing Workflow
+
+
+```text
+Raw Market Data
+
+        ↓
+
+Contract Metadata Extraction
+
+        ↓
+
+Data Cleaning
+
+        ↓
+
+Trading Session Filtering
+
+        ↓
+
+Underlying Futures Matching
+
+        ↓
+
+Research Dataset Construction
+
+        ↓
+
+Parquet Storage
+```
+
+
+---
+
+# 7. Option Analytics Framework
+
+
+The option analytics layer provides the quantitative foundation for strategy research.
+
+
+Main components:
+
+- Black-76 pricing model
+- Implied volatility engine
+- Volatility interpolation
+- Smile analysis
+- Surface construction
+- Greeks calculation
+
+
+---
+
+## 7.1 Implied Volatility Engine
+
+
+The project uses the Black-76 framework because index options are priced using futures as underlying assets.
+
 
 Workflow:
 
+```text
+Market Option Price
+
+        ↓
+
+Black-76 Pricing Model
+
+        ↓
+
+Numerical Optimization
+
+        ↓
+
+Implied Volatility
 ```
-Research Data
-      |
-      v
-Analysis Pipeline
-      |
-      v
-Visualization Generation
-      |
-      v
-Automated Report Builder
-      |
-      v
-Technical Documentation
+
+
+---
+
+## 7.2 Greeks Calculation
+
+
+The platform calculates option sensitivities for strategy evaluation and portfolio risk management.
+
+
+Supported Greeks:
+
+
+| Greek | Description |
+|---|---|
+| Delta | Sensitivity to underlying price movement |
+| Gamma | Convexity exposure |
+| Vega | Sensitivity to implied volatility |
+| Theta | Time decay exposure |
+| Vanna | Delta-volatility interaction |
+| Vomma | Volatility convexity |
+| Speed | Gamma sensitivity |
+
+
+Greeks are used in:
+
+- Strategy evaluation
+- Portfolio exposure calculation
+- Risk monitoring
+- Hedge analysis
+
+
+---
+
+# 8. Strategy Research Framework
+
+
+The strategy layer transforms quantitative observations into systematic option strategies.
+
+
+The framework supports:
+
+- Strategy definition
+- Signal generation
+- Position construction
+- Return calculation
+- Performance evaluation
+
+
+The current strategy library includes:
+
+
+| Strategy ID | Strategy | Category | Status |
+|---|---|---|---|
+| S001 | Long ATM Strangle | Volatility Strategy | Completed |
+| S002 | Long Call Butterfly | Convexity Strategy | Completed |
+| S003 | Calendar Spread | Term Structure Strategy | Completed |
+
+
+---
+
+## 8.1 Long ATM Strangle
+
+
+The Long ATM Strangle strategy constructs a long volatility position by purchasing:
+
+- At-the-money call option
+- At-the-money put option
+
+
+Main exposure:
+
+- Positive volatility exposure
+- Positive gamma exposure
+- Positive convexity
+
+
+The strategy benefits from:
+
+- Large underlying price movement
+- Volatility expansion
+
+
+Research focus:
+
+- Volatility regime selection
+- Entry timing
+- Risk control
+
+
+---
+
+## 8.2 Long Call Butterfly
+
+
+The Long Call Butterfly is a defined-risk option strategy.
+
+
+Main characteristics:
+
+- Limited downside risk
+- Limited maximum profit
+- Target price sensitivity
+
+
+Research focus:
+
+- Strike selection
+- Payoff optimization
+- Probability distribution analysis
+
+
+---
+
+## 8.3 Calendar Spread
+
+
+The Calendar Spread strategy uses options with different expiration dates.
+
+
+Main exposures:
+
+- Time decay difference
+- Volatility spread
+- Term structure movement
+
+
+Research focus:
+
+- Maturity selection
+- Volatility curve analysis
+- Relative value opportunities
+
+
+---
+
+# 9. Backtesting Framework
+
+
+The backtesting system evaluates whether quantitative strategy ideas can be transformed into systematic trading processes.
+
+
+The framework records:
+
+
+| Component | Description |
+|---|---|
+| Entry Date | Position opening time |
+| Exit Date | Position closing time |
+| Holding Period | Trade duration |
+| Signal | Strategy trigger |
+| Position | Option position |
+| Return | Trade performance |
+| Equity Curve | Portfolio evolution |
+| Drawdown | Risk measurement |
+
+
+---
+
+## 9.1 Backtesting Workflow
+
+
+```text
+Strategy Definition
+
+        ↓
+
+Signal Generation
+
+        ↓
+
+Position Construction
+
+        ↓
+
+Historical Simulation
+
+        ↓
+
+Performance Calculation
+
+        ↓
+
+Risk Analysis
 ```
+
+
+---
+
+## 9.2 Performance Evaluation
+
+
+The backtesting framework evaluates:
+
+
+| Metric | Description |
+|---|---|
+| Total Return | Cumulative strategy performance |
+| Annualized Return | Annualized profitability |
+| Volatility | Annualized risk |
+| Sharpe Ratio | Risk-adjusted return |
+| Maximum Drawdown | Largest historical decline |
+| Win Rate | Percentage of profitable trades |
+
+
+The backtesting framework establishes a complete research loop:
+
+
+```text
+Market Data
+
+        ↓
+
+Strategy Signal
+
+        ↓
+
+Trade Simulation
+
+        ↓
+
+Performance Evaluation
+
+        ↓
+
+Research Output
+```
+
+
+---
+
+# 10. Portfolio Management System
+
+
+The portfolio layer combines multiple option strategies into a unified investment framework.
+
+
+The objectives are:
+
+- Evaluate strategy diversification
+- Optimize portfolio allocation
+- Compare different portfolio construction methods
+- Improve risk-adjusted performance
+
+
+The portfolio workflow:
+
+
+```text
+Strategy Returns
+
+        ↓
+
+Portfolio Construction
+
+        ↓
+
+Weight Optimization
+
+        ↓
+
+Risk Scaling
+
+        ↓
+
+Portfolio Performance Analysis
+```
+
+
+---
+
+## 10.1 Portfolio Optimization Methods
+
+
+The framework supports four portfolio construction approaches.
+
+
+### Equal Weight Portfolio
+
+
+Each strategy receives the same allocation.
+
+
+Purpose:
+
+- Baseline comparison
+- Simple diversification benchmark
+
+
+---
+
+### Minimum Variance Portfolio
+
+
+Objective:
+
+Minimize portfolio volatility while maintaining full investment.
+
+
+Main inputs:
+
+- Strategy return series
+- Covariance matrix
+- Portfolio constraints
+
+
+---
+
+### Maximum Sharpe Portfolio
+
+
+Objective:
+
+Maximize risk-adjusted return.
+
+
+The optimization considers:
+
+- Expected return
+- Portfolio volatility
+- Risk-free rate
+
+
+---
+
+### Risk Parity Portfolio
+
+
+Risk parity allocates portfolio weights according to risk contribution.
+
+
+Purpose:
+
+- Reduce concentration risk
+- Improve portfolio robustness
+
+
+---
+
+## 10.2 Volatility Targeting
+
+
+To make different portfolio methods comparable, the framework applies volatility targeting.
+
+
+Current setting:
+
+
+```text
+Target Annual Volatility = 15%
+```
+
+
+Benefits:
+
+- Comparable risk exposure
+- More meaningful performance comparison
+- Improved portfolio evaluation
+
+
+---
+
+## 10.3 Portfolio Performance Analysis
+
+
+The portfolio framework evaluates performance at the portfolio level.
+
+
+Main evaluation metrics:
+
+
+| Metric | Description |
+|---|---|
+| Total Return | Cumulative portfolio performance |
+| Annual Return | Annualized return |
+| Volatility | Annualized portfolio risk |
+| Sharpe Ratio | Risk-adjusted return |
+| Maximum Drawdown | Largest historical loss |
+
+
+The framework automatically generates:
+
+- Portfolio weight tables
+- Performance comparison tables
+- Equity curves
+- Drawdown analysis
+- Research reports
+
+
+---
+
+# 11. Risk Monitoring Framework
+
+
+The risk management layer integrates option Greeks and portfolio exposures.
+
+
+The objective is to provide a systematic view of portfolio risk.
+
+
+Supported risk dimensions:
+
+
+| Risk Type | Description |
+|---|---|
+| Delta Risk | Directional exposure |
+| Gamma Risk | Convexity exposure |
+| Vega Risk | Volatility exposure |
+| Theta Risk | Time decay exposure |
+| Portfolio Exposure | Aggregate strategy risk |
+
+
+---
+
+## 11.1 Risk Monitoring Workflow
+
+
+```text
+Option Positions
+
+        ↓
+
+Greeks Calculation
+
+        ↓
+
+Risk Aggregation
+
+        ↓
+
+Portfolio Exposure Analysis
+
+        ↓
+
+Risk Classification
+
+        ↓
+
+Hedge Recommendation
+```
+
+
+---
+
+# 12. Hedge Analysis Framework
+
+
+The hedge analysis module translates portfolio risk information into potential adjustment actions.
+
+
+Current capabilities:
+
+- Identify dominant risk exposures
+- Classify portfolio risk
+- Provide hedge direction suggestions
+- Support manual portfolio adjustment
+
+
+Future extensions:
+
+- Automated hedge optimization
+- Transaction-cost-aware hedging
+- Dynamic hedge execution
+
+
+---
+
+# 13. Automated Research Reporting
+
+
+The project contains an automated reporting framework for quantitative research communication.
+
+
+The reporting system supports:
+
+
+## 13.1 Technical Documentation
 
 
 Generated documents include:
 
-- English technical white paper
-- Chinese technical white paper
-- Strategy documentation
-- Research summaries
+- Technical white papers
+- Strategy research reports
+- Portfolio analysis reports
+- Performance summaries
 
 
----
+Supported formats:
 
-# System Architecture
 
-The project follows a modular architecture:
+```text
+DOCX
 
-```
-Quant Option Research Platform
-
-|
-├── Data Layer
-|      Market data loading and preprocessing
-|
-├── Analysis Layer
-|      Research analysis modules
-|
-├── Volatility Engine
-|      IV / Smile / Surface / Term Structure
-|
-├── Strategy Framework
-|      Strategy registry and backtesting
-|
-├── Portfolio Engine
-|      Position and NAV management
-|
-├── Risk Engine
-|      Greeks and exposure monitoring
-|
-├── Monitoring Layer
-|      Risk status and reporting
-|
-└── Reporting Framework
-       Automated documentation generation
+PDF
 ```
 
 
 ---
 
-# Selected Research Outputs
+## 13.2 Technical White Paper
 
 
-## Volatility Surface
+The project maintains technical documentation covering:
 
-![Volatility Surface](docs/figures/volatility_surface.png)
-
-
-## Portfolio Performance
-
-![Portfolio NAV](docs/figures/portfolio_nav.png)
-
-
-## Risk Monitoring
-
-![Risk Dashboard](docs/figures/risk_dashboard.png)
-
-
----
-
-# Project Structure
-
-```
-Quant-Option-Research-Platform
-
-|
-├── analysis/
-|      Research analysis modules
-|
-├── config/
-|      Configuration and research settings
-|
-├── framework/
-|      Core quantitative research framework
-|
-├── scripts/
-|      Research pipelines and automation scripts
-|
-├── docs/
-|      Research design documents and figures
-|
-└── research/
-       Reports and documentation
-```
-
-
----
-
-# Research Documentation
-
-Complete technical documentation is available in:
-
-
-## English White Paper
-
-```
-research/reports/quant_option_technical_white_paper_v3_0.docx
-```
-
-
-## Chinese White Paper
-
-```
-research/reports/quant_option_technical_white_paper_cn_v1_0.docx
-```
-
-
-The documents cover:
 
 - Research methodology
-- Volatility analysis
-- Strategy framework
-- Portfolio management
-- Risk monitoring
 - System architecture
+- Data pipeline
+- Option analytics
+- Strategy framework
+- Backtesting methodology
+- Risk management design
+
+
+Documentation files include:
+
+
+```text
+quant_option_technical_white_paper_v3_0.docx
+
+quant_option_technical_white_paper_cn_v1_0.docx
+```
 
 
 ---
 
-# Installation
+## 13.3 Portfolio Research Report
 
 
-Clone the repository:
+The portfolio module generates automated research reports.
 
-```bash
-git clone https://github.com/mdldpc/Quant-Option-Research-Platform.git
 
-cd Quant-Option-Research-Platform
+Reports include:
+
+
+- Portfolio allocation analysis
+- Performance comparison
+- Equity curve visualization
+- Drawdown analysis
+- Risk evaluation
+
+
+Output formats:
+
+
+```text
+English PDF Report
+
+Chinese PDF Report
 ```
 
 
-Create a virtual environment:
+---
+
+# 14. Research Output Structure
+
+
+Research outputs are organized as:
+
+
+```text
+research/
+
+├── reports/
+
+│   Technical reports and documentation
+
+
+├── portfolio/
+
+│   Portfolio optimization results
+
+
+├── figures/
+
+│   Research visualization outputs
+
+
+├── summaries/
+
+│   Research summaries
+
+
+└── studies/
+
+    Experimental research results
+```
+
+
+---
+
+# 15. Documentation Structure
+
+
+Project documentation is maintained under:
+
+
+```text
+docs/
+
+├── methodology/
+
+│   Research methodology
+
+
+├── roadmap/
+
+│   Future development plans
+
+
+├── development_log.md
+
+│   Development records
+
+
+└── project_status.md
+
+    Project progress tracking
+```
+
+
+Documentation provides:
+
+- Research background
+- Development history
+- Methodology explanation
+- Future roadmap
+
+
+---
+
+# 16. Installation
+
+
+## 16.1 Create Virtual Environment
+
+
+Create environment:
+
 
 ```bash
 python -m venv venv
@@ -296,21 +1021,17 @@ python -m venv venv
 
 Activate environment:
 
-### Windows
+
+Windows:
+
 
 ```bash
 venv\Scripts\activate
 ```
 
 
-### Linux / macOS
-
-```bash
-source venv/bin/activate
-```
-
-
 Install dependencies:
+
 
 ```bash
 pip install -r requirements.txt
@@ -319,98 +1040,303 @@ pip install -r requirements.txt
 
 ---
 
-# Usage
+# 17. Running the Project
 
 
-## Run Research Scripts
+## 17.1 Portfolio Optimization
+
+
+Run:
+
 
 ```bash
-python scripts/<script_name>.py
+python -m portfolio_all.portfolio_scripts.run_portfolio_optimization
+```
+
+
+Generated outputs:
+
+
+```text
+research/portfolio/results/
 ```
 
 
 ---
 
-## Generate Documentation
+## 17.2 Generate Portfolio Reports
 
 
-English:
+English report:
+
 
 ```bash
-python -m scripts.rebuild.build_documentation_v3_1
+python -m portfolio_all.portfolio_reports.report_generator
 ```
 
 
-Chinese:
+Chinese report:
+
 
 ```bash
-python -m scripts.rebuild.build_documentation_cn_v1_0
-```
-
-
-The pipeline automatically generates:
-
-- Research figures
-- Tables
-- Technical documentation
-
-
----
-
-# Research Workflow
-
-
-```
-1. Prepare Market Data
-
-        |
-        v
-
-2. Build Research Dataset
-
-        |
-        v
-
-3. Analyze Volatility Structure
-
-        |
-        v
-
-4. Generate Strategy Signals
-
-        |
-        v
-
-5. Run Backtests
-
-        |
-        v
-
-6. Evaluate Portfolio Risk
-
-        |
-        v
-
-7. Generate Research Report
+python -m portfolio_all.portfolio_reports.report_generator_cn
 ```
 
 
 ---
 
-# Future Roadmap
+## 17.3 Run Tests
 
-Potential extensions:
 
-- Additional volatility strategies
-- More comprehensive historical datasets
+Execute:
+
+
+```bash
+pytest
+```
+
+
+The test suite validates the correctness of core research modules.
+
+
+---
+
+# 18. Software Environment
+
+
+Main technologies:
+
+
+| Technology | Purpose |
+|---|---|
+| Python | Main development language |
+| NumPy | Numerical computation |
+| Pandas | Data processing |
+| SciPy | Optimization and numerical methods |
+| Matplotlib | Visualization |
+| PyArrow | Parquet data processing |
+| Scikit-learn | Machine learning utilities |
+| Statsmodels | Statistical analysis |
+| Python-docx | Word report generation |
+| ReportLab | PDF generation |
+
+
+---
+
+# 19. Current Limitations
+
+
+Although the platform provides a complete quantitative research workflow, several limitations remain.
+
+
+## Data Limitations
+
+Current limitations:
+
+- Limited historical data coverage
+- Further market regime validation is required
+- More underlying assets and contracts can be incorporated
+
+
+---
+
+## Trading Assumption Limitations
+
+
+Current research uses simplified assumptions:
+
+- Transaction costs require further refinement
+- Liquidity constraints are not fully modeled
+- Market impact requires additional analysis
+- Execution latency is not considered
+
+
+---
+
+## Model Limitations
+
+
+Potential improvements include:
+
+- More advanced volatility models
+- Machine learning-based signal generation
+- Statistical validation of strategy robustness
+- More comprehensive stress testing
+
+
+The current platform should be considered a quantitative research framework rather than a production trading system.
+
+
+---
+
+# 20. Future Roadmap
+
+
+The future development roadmap focuses on improving research depth, risk management capability, and production readiness.
+
+
+---
+
+## Phase 1: Research Expansion
+
+
+Planned improvements:
+
+
+- Extend historical datasets
+- Add more option strategies
+- Improve volatility modeling
+- Develop additional quantitative signals
+- Enhance strategy comparison framework
+
+
+---
+
+## Phase 2: Risk Infrastructure Enhancement
+
+
+Future extensions:
+
+
+- Scenario analysis
+- Stress testing
 - Advanced portfolio optimization
-- Machine learning based volatility forecasting
-- Real-time market data integration
-- Cloud-based research deployment
+- Automated risk reporting
+- Dynamic hedge optimization
 
 
 ---
 
-# License
+## Phase 3: Production Development
+
+
+Long-term objectives:
+
+
+- Real-time market data pipeline
+- Live monitoring dashboard
+- Execution system integration
+- Cloud-based research infrastructure
+
+
+---
+
+# 21. Project Philosophy
+
+
+The project follows several quantitative research principles:
+
+
+## Reproducibility
+
+All research processes should be:
+
+- Modular
+- Documented
+- Repeatable
+
+
+---
+
+## Separation of Research and Execution
+
+
+The framework separates:
+
+- Data processing
+- Research logic
+- Strategy evaluation
+- Portfolio construction
+- Reporting
+
+
+This improves maintainability and future scalability.
+
+
+---
+
+## Research-Driven Development
+
+
+Each module is developed around a research question:
+
+```text
+Market Observation
+
+        ↓
+
+Quantitative Hypothesis
+
+        ↓
+
+Strategy Design
+
+        ↓
+
+Backtesting
+
+        ↓
+
+Risk Evaluation
+
+        ↓
+
+Research Conclusion
+```
+
+
+---
+
+# 22. License
+
+
+This project is released under the MIT License.
+
+
+The license file is:
+
+
+```text
+LICENSE
+```
+
+
+---
+
+# 23. Disclaimer
+
 
 This project is developed for quantitative research and educational purposes.
+
+
+The results generated by historical backtesting do not guarantee future performance.
+
+
+The framework is intended for:
+
+- Research
+- Learning
+- Quantitative development practice
+
+
+It should not be considered financial advice or a production investment system.
+
+
+---
+
+# 24. References
+
+
+Key references:
+
+
+- Black, F. (1976). The Pricing of Commodity Contracts.
+
+- Hull, J. Options, Futures, and Other Derivatives.
+
+- Quantitative option pricing and volatility modeling literature.
+
+
+---
+
+# End of Document
