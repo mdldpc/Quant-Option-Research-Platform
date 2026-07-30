@@ -22,7 +22,7 @@ class CalendarBacktester(BaseBacktester):
 
             entry_price = trade["entry_calendar_price"]
             exit_price = trade["exit_calendar_price"]
-            capital_base = abs(entry_price)
+            capital_base = trade["capital_base"]
 
             if (
                 pd.isna(entry_price)
@@ -33,9 +33,21 @@ class CalendarBacktester(BaseBacktester):
                 pnl = None
                 ret = None
             else:
+
                 status = "ok"
-                pnl = exit_price - entry_price
-                ret = pnl / capital_base
+
+                pnl = (
+                    exit_price
+                    -
+                    entry_price
+                )
+
+                ret = (
+                    pnl
+                    /
+                    capital_base
+                )
+
 
             rows.append({
                 **trade.to_dict(),

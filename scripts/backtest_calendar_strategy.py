@@ -5,8 +5,12 @@ import pandas as pd
 TRADES_FILE = Path("research/exports/option_strategy_backtest_v2.csv")
 SNAPSHOT_FILE = Path("research/datasets/calendar_daily_snapshot_2026H1.parquet")
 
-OUT_CSV = Path("research/exports/calendar_strategy_backtest.csv")
-OUT_REPORT = Path("research/reports/calendar_strategy_backtest_report.txt")
+OUT_CSV = Path(
+    "research/exports/option_strategy_backtest_calendar_v1_1.csv"
+)
+OUT_REPORT = Path(
+    "research/reports/option_strategy_backtest_calendar_v1_1_report.txt"
+)
 
 
 def main():
@@ -91,6 +95,9 @@ def main():
 
             "near_expiry": near_expiry,
             "next_expiry": next_expiry,
+
+            "near_strike": entry_row.get("near_strike"),
+            "next_strike": entry_row.get("next_strike"),
 
             "entry_calendar_price": entry_price,
             "exit_calendar_price": exit_price,

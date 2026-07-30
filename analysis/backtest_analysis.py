@@ -151,6 +151,20 @@ class BacktestAnalyzer:
         Calculate equity related statistics.
         """
 
+        if len(self.returns) == 0:
+
+            return {
+
+                "final_equity":
+                    float("nan"),
+
+
+                "average_return":
+                    float("nan"),
+
+            }
+
+
         equity = (
             1 + self.returns
         ).cumprod()
@@ -159,10 +173,14 @@ class BacktestAnalyzer:
         return {
 
             "final_equity":
-                float(equity.iloc[-1]),
+                float(
+                    equity.iloc[-1]
+                ),
 
 
             "average_return":
-                float(self.returns.mean()),
+                float(
+                    self.returns.mean()
+                ),
 
         }

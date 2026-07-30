@@ -242,7 +242,19 @@ class CalendarTradeConstructor(BaseTradeConstructor):
             exit_price = exit_available.iloc[-1]["calendar_price"]
 
         entry_price = entry_contract.get("calendar_price")
-        capital_base = abs(entry_price) if entry_price is not None else None
+
+        near_value = entry_contract.get(
+            "near_straddle_price"
+        )
+
+        next_value = entry_contract.get(
+            "next_straddle_price"
+        )
+
+        if near_value is not None and next_value is not None:
+            capital_base = abs(near_value) + abs(next_value)
+        else:
+            capital_base = None
 
         return {
             "trade_id": trade_id,
@@ -258,6 +270,13 @@ class CalendarTradeConstructor(BaseTradeConstructor):
 
             "entry_calendar_price": entry_price,
             "exit_calendar_price": exit_price,
+
+            "entry_near_straddle_price":
+                entry_contract.get("near_straddle_price"),
+
+            "entry_next_straddle_price":
+                entry_contract.get("next_straddle_price"),
+
             "capital_base": capital_base,
 
             "entry_iv_spread": entry_contract.get("iv_spread"),
