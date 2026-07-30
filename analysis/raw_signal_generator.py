@@ -87,6 +87,33 @@ class RawSignalGenerator:
             .reset_index(drop=True)
         )
 
+        # ==================================================
+        # Ensure required signal columns exist
+        # ==================================================
+
+        required_defaults = {
+
+            "signal_score":
+                out["long_signal"].astype(float),
+
+            "trade_date":
+                range(len(out)),
+
+            "near_iv":
+                None,
+
+            "term_slope_next_near":
+                None,
+
+            "near_iv_zscore":
+                None,
+        }
+
+
+        for col, default_value in required_defaults.items():
+
+            if col not in out.columns:
+                out[col] = default_value
 
         trades = []
 
