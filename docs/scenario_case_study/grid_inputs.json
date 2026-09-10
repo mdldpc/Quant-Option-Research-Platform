@@ -1,0 +1,288 @@
+{
+  "positions": [
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "long_call_100",
+      "quantity": 10,
+      "strike": 100,
+      "maturity": 0.5,
+      "volatility": 0.25,
+      "option_type": "call"
+    },
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "short_put_95",
+      "quantity": -6,
+      "strike": 95,
+      "maturity": 0.75,
+      "volatility": 0.28,
+      "option_type": "put"
+    },
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "short_call_110",
+      "quantity": -4,
+      "strike": 110,
+      "maturity": 0.5,
+      "volatility": 0.25,
+      "option_type": "call"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "spot=-0.200;vol=-0.050",
+      "spot_return": -0.2,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=-0.050",
+      "spot_return": -0.1,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=-0.050",
+      "spot_return": -0.05,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=-0.050",
+      "spot_return": 0,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=-0.050",
+      "spot_return": 0.05,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=-0.050",
+      "spot_return": 0.1,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=-0.050",
+      "spot_return": 0.2,
+      "volatility_shift": -0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.200;vol=-0.025",
+      "spot_return": -0.2,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=-0.025",
+      "spot_return": -0.1,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=-0.025",
+      "spot_return": -0.05,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=-0.025",
+      "spot_return": 0,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=-0.025",
+      "spot_return": 0.05,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=-0.025",
+      "spot_return": 0.1,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=-0.025",
+      "spot_return": 0.2,
+      "volatility_shift": -0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.200;vol=+0.000",
+      "spot_return": -0.2,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=+0.000",
+      "spot_return": -0.1,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=+0.000",
+      "spot_return": -0.05,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=+0.000",
+      "spot_return": 0,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=+0.000",
+      "spot_return": 0.05,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=+0.000",
+      "spot_return": 0.1,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=+0.000",
+      "spot_return": 0.2,
+      "volatility_shift": 0,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.200;vol=+0.025",
+      "spot_return": -0.2,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=+0.025",
+      "spot_return": -0.1,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=+0.025",
+      "spot_return": -0.05,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=+0.025",
+      "spot_return": 0,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=+0.025",
+      "spot_return": 0.05,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=+0.025",
+      "spot_return": 0.1,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=+0.025",
+      "spot_return": 0.2,
+      "volatility_shift": 0.025,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.200;vol=+0.050",
+      "spot_return": -0.2,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=+0.050",
+      "spot_return": -0.1,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=+0.050",
+      "spot_return": -0.05,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=+0.050",
+      "spot_return": 0,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=+0.050",
+      "spot_return": 0.05,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=+0.050",
+      "spot_return": 0.1,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=+0.050",
+      "spot_return": 0.2,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.200;vol=+0.100",
+      "spot_return": -0.2,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.100;vol=+0.100",
+      "spot_return": -0.1,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=-0.050;vol=+0.100",
+      "spot_return": -0.05,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.000;vol=+0.100",
+      "spot_return": 0,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.050;vol=+0.100",
+      "spot_return": 0.05,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.100;vol=+0.100",
+      "spot_return": 0.1,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "spot=+0.200;vol=+0.100",
+      "spot_return": 0.2,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    }
+  ]
+}

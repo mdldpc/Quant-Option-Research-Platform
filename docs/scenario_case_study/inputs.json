@@ -1,0 +1,70 @@
+{
+  "positions": [
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "long_call_100",
+      "quantity": 10,
+      "strike": 100,
+      "maturity": 0.5,
+      "volatility": 0.25,
+      "option_type": "call"
+    },
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "short_put_95",
+      "quantity": -6,
+      "strike": 95,
+      "maturity": 0.75,
+      "volatility": 0.28,
+      "option_type": "put"
+    },
+    {
+      "spot": 100,
+      "rate": 0.04,
+      "position_id": "short_call_110",
+      "quantity": -4,
+      "strike": 110,
+      "maturity": 0.5,
+      "volatility": 0.25,
+      "option_type": "call"
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "No shock"
+    },
+    {
+      "name": "Small combined shock",
+      "spot_return": 0.01,
+      "volatility_shift": 0.005,
+      "days_elapsed": 1
+    },
+    {
+      "name": "Downside with volatility rise",
+      "spot_return": -0.1,
+      "volatility_shift": 0.05,
+      "days_elapsed": 7
+    },
+    {
+      "name": "Severe downside",
+      "spot_return": -0.2,
+      "volatility_shift": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "Upside",
+      "spot_return": 0.1,
+      "days_elapsed": 7
+    },
+    {
+      "name": "Time only",
+      "days_elapsed": 7
+    },
+    {
+      "name": "Rate only",
+      "rate_shift": 0.01
+    }
+  ]
+}
