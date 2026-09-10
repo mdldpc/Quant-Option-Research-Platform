@@ -214,6 +214,29 @@ Quant Option Research Platform
 ![Risk Dashboard](docs/figures/risk_dashboard.png)
 
 
+## Empirical Results on the Available Sample
+
+The published research uses intraday Chinese index option and futures data from
+2026-01-02 to 2026-06-10. The Phase I prototype completed 4 trades, with 3
+winners, a reported cumulative return of 30.5%, and a maximum drawdown of
+-0.92%.
+
+The expanded strategy evaluation reports:
+
+| Strategy | Win Rate | Average Return | Best Return | Worst Return |
+|---|---:|---:|---:|---:|
+| Long ATM Strangle | 28.57% | -2.1074% | 6.8016% | -9.4435% |
+| Long Call Butterfly | 100.00% | 8.0018% | 17.7778% | 0.0000% |
+| Calendar Spread | 13.33% | -29.5095% | 61.6839% | -87.6428% |
+
+These are preliminary results from a short 2026 sample, not evidence of stable
+out-of-sample profitability. Raw licensed market data and generated research
+tables are excluded from the public repository, so third parties cannot fully
+reproduce the reported values from the repository alone. See the
+[Phase I report](research/reports/Seven_Goal_Project_Report_v1.pdf) and
+[technical white paper](research/reports/quant_option_technical_white_paper_v3_0.docx).
+
+
 ---
 
 # Project Structure
