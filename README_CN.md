@@ -354,6 +354,21 @@ python -m scripts.rebuild.build_documentation_cn_v1_0
 
 ---
 
+# 小样本机器学习
+
+项目包含针对短历史期权数据设计的 Regime-Aware Meta-labeling 流程：
+
+- PCA + Gaussian Mixture 市场状态识别
+- Logistic Regression 与浅层树模型基准
+- Purged、embargoed expanding walk-forward 验证
+- 组合级复利收益、回撤与 CVaR
+- Block bootstrap、Deflated Sharpe 与过拟合概率诊断
+- 自动生成校准、特征解释、成本和阈值敏感性报告
+
+参见 [`docs/small_sample_ml.md`](docs/small_sample_ml.md)。
+
+---
+
 # 后续规划
 
 

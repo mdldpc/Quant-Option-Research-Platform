@@ -397,6 +397,17 @@ The pipeline automatically generates:
 
 ---
 
+# Small-Sample Machine Learning
+
+The project includes a regime-aware meta-labeling workflow designed for short
+option histories. It uses purged and embargoed expanding walk-forward tests,
+PCA/GMM regimes, regularized and nonlinear baselines, portfolio-level metrics,
+block-bootstrap uncertainty, calibration, and reproducibility manifests.
+
+See [`docs/small_sample_ml.md`](docs/small_sample_ml.md).
+
+---
+
 # Future Roadmap
 
 Potential extensions:
