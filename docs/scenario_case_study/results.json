@@ -1,0 +1,481 @@
+{
+  "base_value": 28.54204683682022,
+  "scenarios": [
+    {
+      "name": "No shock",
+      "base_value": 28.54204683682022,
+      "stressed_value": 28.54204683682022,
+      "full_revaluation_pnl": 0.0,
+      "approximation_pnl": 0.0,
+      "approximation_error": 0.0,
+      "components": {
+        "delta": 0.0,
+        "gamma": 0.0,
+        "vega": 0.0,
+        "theta": 0.0,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 8.007996578864287,
+          "base_value": 80.07996578864287,
+          "stressed_value": 80.07996578864287,
+          "full_revaluation_pnl": 0.0,
+          "approximation_pnl": 0.0,
+          "approximation_error": 0.0,
+          "components": {
+            "delta": 0.0,
+            "gamma": 0.0,
+            "vega": 0.0,
+            "theta": -0.0,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 5.883045611805649,
+          "base_value": -35.29827367083389,
+          "stressed_value": -35.29827367083389,
+          "full_revaluation_pnl": 0.0,
+          "approximation_pnl": 0.0,
+          "approximation_error": 0.0,
+          "components": {
+            "delta": 0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.0,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 4.059911320247188,
+          "base_value": -16.239645280988753,
+          "stressed_value": -16.239645280988753,
+          "full_revaluation_pnl": 0.0,
+          "approximation_pnl": 0.0,
+          "approximation_error": 0.0,
+          "components": {
+            "delta": -0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.0,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Small combined shock",
+      "base_value": 28.54204683682022,
+      "stressed_value": 34.654775234273714,
+      "full_revaluation_pnl": 6.112728397453495,
+      "approximation_pnl": 6.123712935000507,
+      "approximation_error": -0.01098453754701234,
+      "components": {
+        "delta": 6.271387607285855,
+        "gamma": 0.023462572972728198,
+        "vega": -0.08473496366762723,
+        "theta": -0.08640228159044921,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 8.711671557337027,
+          "base_value": 80.07996578864287,
+          "stressed_value": 87.11671557337027,
+          "full_revaluation_pnl": 7.036749784727405,
+          "approximation_pnl": 7.047150663959281,
+          "approximation_error": -0.010400879231875493,
+          "components": {
+            "delta": 5.7985612751190105,
+            "gamma": 0.11056970909834492,
+            "vega": 1.3821213637293115,
+            "theta": -0.24410168398738602,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 5.708670843291422,
+          "base_value": -35.29827367083389,
+          "stressed_value": -34.25202505974853,
+          "full_revaluation_pnl": 1.0462486110853604,
+          "approximation_pnl": 1.0360636786127615,
+          "approximation_error": 0.010184932472598884,
+          "components": {
+            "delta": 1.9441098483573926,
+            "gamma": -0.04447260303843879,
+            "vega": -0.9339246638072146,
+            "theta": 0.07035109710102218,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 4.552478819837006,
+          "base_value": -16.239645280988753,
+          "stressed_value": -18.209915279348024,
+          "full_revaluation_pnl": -1.9702699983592709,
+          "approximation_pnl": -1.9595014075715351,
+          "approximation_error": -0.010768590787735732,
+          "components": {
+            "delta": -1.4712835161905478,
+            "gamma": -0.04263453308717793,
+            "vega": -0.5329316635897241,
+            "theta": 0.08734830529591463,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Downside with volatility rise",
+      "base_value": 28.54204683682022,
+      "stressed_value": -33.0070083025201,
+      "full_revaluation_pnl": -61.54905513934032,
+      "approximation_pnl": -61.819784383395145,
+      "approximation_error": 0.270729244054829,
+      "components": {
+        "delta": -62.713876072858554,
+        "gamma": 2.3462572972728193,
+        "vega": -0.8473496366762703,
+        "theta": -0.6048159711331444,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 4.398869333547527,
+          "base_value": 80.07996578864287,
+          "stressed_value": 43.98869333547527,
+          "full_revaluation_pnl": -36.0912724531676,
+          "approximation_pnl": -34.8161399919742,
+          "approximation_error": -1.275132461193401,
+          "components": {
+            "delta": -57.985612751190104,
+            "gamma": 11.056970909834492,
+            "vega": 13.821213637293116,
+            "theta": -1.7087117879117022,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 11.393430363571717,
+          "base_value": -35.29827367083389,
+          "stressed_value": -68.3605821814303,
+          "full_revaluation_pnl": -33.06230851059641,
+          "approximation_pnl": -32.7351477457828,
+          "approximation_error": -0.32716076481361256,
+          "components": {
+            "delta": -19.441098483573928,
+            "gamma": -4.44726030384388,
+            "vega": -9.339246638072146,
+            "theta": 0.4924576797071553,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 2.158779864141266,
+          "base_value": -16.239645280988753,
+          "stressed_value": -8.635119456565064,
+          "full_revaluation_pnl": 7.604525824423689,
+          "approximation_pnl": 5.7315033543618465,
+          "approximation_error": 1.8730224700618425,
+          "components": {
+            "delta": 14.712835161905478,
+            "gamma": -4.263453308717793,
+            "vega": -5.329316635897241,
+            "theta": 0.6114381370714025,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Severe downside",
+      "base_value": 28.54204683682022,
+      "stressed_value": -90.47437756815685,
+      "full_revaluation_pnl": -119.01642440497707,
+      "approximation_pnl": -118.34223820111151,
+      "approximation_error": -0.6741862038655704,
+      "components": {
+        "delta": -125.42775214571711,
+        "gamma": 9.385029189091277,
+        "vega": -1.6946992733525406,
+        "theta": -0.6048159711331444,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 2.3957042339154526,
+          "base_value": 80.07996578864287,
+          "stressed_value": 23.957042339154526,
+          "full_revaluation_pnl": -56.12292344948834,
+          "approximation_pnl": -45.80962637636771,
+          "approximation_error": -10.31329707312063,
+          "components": {
+            "delta": -115.97122550238021,
+            "gamma": 44.22788363933797,
+            "vega": 27.642427274586232,
+            "theta": -1.7087117879117022,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 18.28783951375013,
+          "base_value": -35.29827367083389,
+          "stressed_value": -109.72703708250077,
+          "full_revaluation_pnl": -74.42876341166688,
+          "approximation_pnl": -74.8572737789605,
+          "approximation_error": 0.4285103672936259,
+          "components": {
+            "delta": -38.882196967147856,
+            "gamma": -17.78904121537552,
+            "vega": -18.67849327614429,
+            "theta": 0.4924576797071553,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 1.1760957062026538,
+          "base_value": -16.239645280988753,
+          "stressed_value": -4.704382824810615,
+          "full_revaluation_pnl": 11.535262456178138,
+          "approximation_pnl": 2.324661954216704,
+          "approximation_error": 9.210600501961434,
+          "components": {
+            "delta": 29.425670323810955,
+            "gamma": -17.05381323487117,
+            "vega": -10.658633271794482,
+            "theta": 0.6114381370714025,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Upside",
+      "base_value": 28.54204683682022,
+      "stressed_value": 92.58880652468173,
+      "full_revaluation_pnl": 64.04675968786151,
+      "approximation_pnl": 64.45531739899832,
+      "approximation_error": -0.4085577111368135,
+      "components": {
+        "delta": 62.71387607285864,
+        "gamma": 2.3462572972728246,
+        "vega": 0.0,
+        "theta": -0.6048159711331444,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 14.647473903018962,
+          "base_value": 80.07996578864287,
+          "stressed_value": 146.47473903018962,
+          "full_revaluation_pnl": 66.39477324154676,
+          "approximation_pnl": 67.33387187311301,
+          "approximation_error": -0.9390986315662531,
+          "components": {
+            "delta": 57.98561275119019,
+            "gamma": 11.056970909834522,
+            "vega": 0.0,
+            "theta": -1.7087117879117022,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 3.2347576176051547,
+          "base_value": -35.29827367083389,
+          "stressed_value": -19.408545705630928,
+          "full_revaluation_pnl": 15.889727965202965,
+          "approximation_pnl": 15.486295859437215,
+          "approximation_error": 0.4034321057657504,
+          "components": {
+            "delta": 19.441098483573953,
+            "gamma": -4.447260303843892,
+            "vega": -0.0,
+            "theta": 0.4924576797071553,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 8.619346699969242,
+          "base_value": -16.239645280988753,
+          "stressed_value": -34.47738679987697,
+          "full_revaluation_pnl": -18.237741518888214,
+          "approximation_pnl": -18.364850333551903,
+          "approximation_error": 0.12710881466368917,
+          "components": {
+            "delta": -14.712835161905499,
+            "gamma": -4.263453308717805,
+            "vega": -0.0,
+            "theta": 0.6114381370714025,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Time only",
+      "base_value": 28.54204683682022,
+      "stressed_value": 27.931344637052504,
+      "full_revaluation_pnl": -0.6107021997677151,
+      "approximation_pnl": -0.6048159711331444,
+      "approximation_error": -0.005886228634570723,
+      "components": {
+        "delta": 0.0,
+        "gamma": 0.0,
+        "vega": 0.0,
+        "theta": -0.6048159711331444,
+        "rho": 0.0
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 7.8357697272447595,
+          "base_value": 80.07996578864287,
+          "stressed_value": 78.3576972724476,
+          "full_revaluation_pnl": -1.722268516195271,
+          "approximation_pnl": -1.7087117879117022,
+          "approximation_error": -0.013556728283568908,
+          "components": {
+            "delta": 0.0,
+            "gamma": 0.0,
+            "vega": 0.0,
+            "theta": -1.7087117879117022,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 5.80021115047181,
+          "base_value": -35.29827367083389,
+          "stressed_value": -34.80126690283086,
+          "full_revaluation_pnl": 0.49700676800303256,
+          "approximation_pnl": 0.4924576797071553,
+          "approximation_error": 0.004549088295877246,
+          "components": {
+            "delta": 0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.4924576797071553,
+            "rho": 0.0
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 3.9062714331410575,
+          "base_value": -16.239645280988753,
+          "stressed_value": -15.62508573256423,
+          "full_revaluation_pnl": 0.6145595484245234,
+          "approximation_pnl": 0.6114381370714025,
+          "approximation_error": 0.0031214113531209398,
+          "components": {
+            "delta": -0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.6114381370714025,
+            "rho": -0.0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rate only",
+      "base_value": 28.54204683682022,
+      "stressed_value": 32.09028939447195,
+      "full_revaluation_pnl": 3.548242557651733,
+      "approximation_pnl": 3.56725671572526,
+      "approximation_error": -0.01901415807352702,
+      "components": {
+        "delta": 0.0,
+        "gamma": 0.0,
+        "vega": 0.0,
+        "theta": 0.0,
+        "rho": 3.56725671572526
+      },
+      "positions": [
+        {
+          "position_id": "long_call_100",
+          "base_price": 8.007996578864287,
+          "stressed_price": 8.26001519934323,
+          "base_value": 80.07996578864287,
+          "stressed_value": 82.60015199343229,
+          "full_revaluation_pnl": 2.5201862047894252,
+          "approximation_pnl": 2.4988808086162915,
+          "approximation_error": 0.02130539617313376,
+          "components": {
+            "delta": 0.0,
+            "gamma": 0.0,
+            "vega": 0.0,
+            "theta": -0.0,
+            "rho": 2.4988808086162915
+          }
+        },
+        {
+          "position_id": "short_put_95",
+          "base_price": 5.883045611805649,
+          "stressed_price": 5.601122171186681,
+          "base_value": -35.29827367083389,
+          "stressed_value": -33.606733027120086,
+          "full_revaluation_pnl": 1.6915406437138074,
+          "approximation_pnl": 1.7228194387992986,
+          "approximation_error": -0.03127879508549114,
+          "components": {
+            "delta": 0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.0,
+            "rho": 1.7228194387992986
+          }
+        },
+        {
+          "position_id": "short_call_110",
+          "base_price": 4.059911320247188,
+          "stressed_price": 4.225782392960063,
+          "base_value": -16.239645280988753,
+          "stressed_value": -16.903129571840253,
+          "full_revaluation_pnl": -0.6634842908514997,
+          "approximation_pnl": -0.6544435316903301,
+          "approximation_error": -0.009040759161169643,
+          "components": {
+            "delta": -0.0,
+            "gamma": -0.0,
+            "vega": -0.0,
+            "theta": 0.0,
+            "rho": -0.6544435316903301
+          }
+        }
+      ]
+    }
+  ]
+}

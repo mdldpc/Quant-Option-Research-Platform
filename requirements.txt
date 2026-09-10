@@ -13,3 +13,7 @@ ipykernel
 
 scikit-learn
 statsmodels
+fastapi
+uvicorn
+pytest
+httpx
